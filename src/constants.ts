@@ -1,4 +1,4 @@
-import { LucideIcon, Languages, Plane, Hotel, Car, Ship, GraduationCap, FileCheck, Subtitles, Globe, Handshake } from 'lucide-react';
+import { LucideIcon, Languages, Plane, Hotel, Car, Ship, GraduationCap, FileCheck, Subtitles, Globe, Handshake, HelpCircle, Star, Play } from 'lucide-react';
 
 export type Language = 'en' | 'es' | 'pt' | 'zh' | 'he' | 'ar' | 'ru' | 'ro' | 'nl' | 'no' | 'hi' | 'ja' | 'fr' | 'it' | 'de' | 'ko' | 'fi' | 'el';
 
@@ -10,13 +10,15 @@ export interface Service {
   slides?: string[];
   videos?: string[];
   partners?: { name: string; image: string }[];
+  faqItems?: { question: string; answer: string }[];
   translations: Record<Language, {
     title: string;
     description: string;
+    faqItems?: { question: string; answer: string }[];
   }>;
 }
 
-export const WHATSAPP_NUMBER = "5511999999999";
+export const WHATSAPP_NUMBER = "5569981232697";
 export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const TRAVEL_PLATFORM_URL = "https://www.comprarviagem.com.br/vgoire'strips/home";
 export const OFFICIAL_WEBSITE_URL = "https://tevgoire.com.br/";
@@ -53,8 +55,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Back",
     excellence: "Excellence in Every Service",
     rateUs: "Rate us on Google",
+    readReviews: "READ MY CLIENTS RATINGS ON GOOGLE",
     reviews: "CLIENT REVIEWS",
     partners: "OUR PARTNERS",
+    questionsResponses: "QUESTIONS and RESPONSES",
     privacyPolicy: "Privacy Policy",
     privacyContent: "VGOIRE is committed to protecting your privacy. This application does not collect personal data directly. Any information shared via WhatsApp or external links is handled by those respective platforms according to their own privacy policies. We do not share your information with third parties."
   },
@@ -68,8 +72,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Volver",
     excellence: "Excelencia en cada servicio",
     rateUs: "Califícanos en Google",
+    readReviews: "LEER LAS CALIFICACIONES DE MIS CLIENTES EN GOOGLE",
     reviews: "OPINIONES DE CLIENTES",
     partners: "NUESTROS SOCIOS",
+    questionsResponses: "PREGUNTAS y RESPUESTAS",
     privacyPolicy: "Política de Privacidad",
     privacyContent: "VGOIRE se compromete a proteger su privacidad. Esta aplicación no recopila datos personales directamente. Cualquier información compartida a través de WhatsApp o enlaces externos es manejada por esas plataformas respectivas de acuerdo con sus propias políticas de privacidad. No compartimos su información con terceros."
   },
@@ -83,8 +89,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Voltar",
     excellence: "Excelência em cada serviço",
     rateUs: "Avalie-nos no Google",
+    readReviews: "LER AS AVALIAÇÕES DOS MEUS CLIENTES NO GOOGLE",
     reviews: "AVALIAÇÕES DE CLIENTES",
     partners: "NOSSOS PARCEIROS",
+    questionsResponses: "PERGUNTAS e RESPOSTAS",
     privacyPolicy: "Política de Privacidade",
     privacyContent: "A VGOIRE está comprometida em proteger sua privacidade. Este aplicativo não coleta dados pessoais diretamente. Qualquer informação compartilhada via WhatsApp ou links externos é tratada por essas respectivas plataformas de acordo com suas próprias políticas de privacidade. Não compartilhamos suas informações com terceiros."
   },
@@ -98,8 +106,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "返回",
     excellence: "卓越的服务",
     rateUs: "在 Google 上评价我们",
+    readReviews: "在 GOOGLE 上阅读我的客户评分",
     reviews: "客户评价",
     partners: "我们的合作伙伴",
+    questionsResponses: "问题与解答",
     privacyPolicy: "隐私政策",
     privacyContent: "VGOIRE 致力于保护您的隐私。本应用不直接收集个人数据。通过 WhatsApp 或外部链接共享的任何信息均由这些相应平台根据其自身的隐私政策处理。我们不会与第三方共享您的信息。"
   },
@@ -113,8 +123,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "חזור",
     excellence: "מצוינות בכל שירות",
     rateUs: "דרגו אותנו בגוגל",
+    readReviews: "קרא את דירוגי הלקוחות שלי בגוגל",
     reviews: "ביקורות לקוחות",
     partners: "השותפים שלנו",
+    questionsResponses: "שאלות ותשובות",
     privacyPolicy: "מדיניות פרטיות",
     privacyContent: "VGOIRE מחויבת להגן על הפרטיות שלך. אפליקציה זו אינה אוספת נתונים אישיים באופן ישיר. כל מידע המשותף באמצעות WhatsApp או קישורים חיצוניים מטופל על ידי הפלטפורמות המתאימות בהתאם למדיניות הפרטיות שלהן. איננו משתפים את המידע שלך עם צדדים שלישיים."
   },
@@ -128,8 +140,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "رجوع",
     excellence: "التميز في كل خدمة",
     rateUs: "قيمنا على Google",
+    readReviews: "اقرأ تقييمات عملائي على GOOGLE",
     reviews: "آراء العملاء",
     partners: "شركاؤنا",
+    questionsResponses: "الأسئلة والأجوبة",
     privacyPolicy: "سياسة الخصوصية",
     privacyContent: "تلتزم VGOIRE بحماية خصوصيتك. لا يجمع هذا التطبيق البيانات الشخصية مباشرة. يتم التعامل مع أي معلومات يتم مشاركتها عبر WhatsApp أو الروابط الخارجية من قبل تلك المنصات المعنية وفقًا لسياسات الخصوصية الخاصة بها. نحن لا نشارك معلوماتك مع أطراف ثالثة."
   },
@@ -143,8 +157,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Назад",
     excellence: "Превосходство в каждой услуге",
     rateUs: "Оцените нас в Google",
+    readReviews: "ПРОЧИТАТЬ РЕЙТИНГИ МОИХ КЛИЕНТОВ В GOOGLE",
     reviews: "ОТЗЫВЫ КЛИЕНТОВ",
     partners: "НАШИ ПАРТНЕРЫ",
+    questionsResponses: "ВОПРОСЫ и ОТВЕТЫ",
     privacyPolicy: "Политика конфиденциальности",
     privacyContent: "VGOIRE стремится защищать вашу конфиденциальность."
   },
@@ -158,8 +174,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Înapoi",
     excellence: "Excelență în fiecare serviciu",
     rateUs: "Evaluează-ne pe Google",
+    readReviews: "CITIȚI EVALUĂRILE CLIENȚILOR MEI PE GOOGLE",
     reviews: "RECENZII CLIENȚI",
     partners: "PARTENERII NOȘTRI",
+    questionsResponses: "ÎNTREBĂRI și RĂSPUNSURI",
     privacyPolicy: "Politica de confidențialitate",
     privacyContent: "VGOIRE se angajează să vă protejeze confidențialitatea."
   },
@@ -173,8 +191,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Terug",
     excellence: "Uitmuntendheid in elke service",
     rateUs: "Beoordeel ons op Google",
+    readReviews: "LEES MIJN KLANTBEOORDELINGEN OP GOOGLE",
     reviews: "KLANTBEOORDELINGEN",
     partners: "ONZE PARTNERS",
+    questionsResponses: "VRAGEN en ANTWOORDEN",
     privacyPolicy: "Privacybeleid",
     privacyContent: "VGOIRE zet zich in voor het beschermen van uw privacy."
   },
@@ -188,8 +208,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Tilbake",
     excellence: "Excellence i hver tjeneste",
     rateUs: "Vurder oss på Google",
+    readReviews: "LES MINE KUNDEVURDERINGER PÅ GOOGLE",
     reviews: "KUNDEANMELDELSER",
     partners: "VÅRE PARTNERE",
+    questionsResponses: "SPØRSMÅL og SVAR",
     privacyPolicy: "Personvernregler",
     privacyContent: "VGOIRE er forpliktet til å beskytte ditt personvern."
   },
@@ -203,8 +225,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "पीछे",
     excellence: "हर सेवा में उत्कृष्टता",
     rateUs: "हमें Google पर रेट करें",
+    readReviews: "GOOGLE पर मेरे ग्राहकों की रेटिंग पढ़ें",
     reviews: "ग्राहक समीक्षा",
     partners: "हमारे भागीदार",
+    questionsResponses: "प्रश्न और उत्तर",
     privacyPolicy: "गोपनीयता नीति",
     privacyContent: "VGOIRE आपकी गोपनीयता की रक्षा के लिए प्रतिबद्ध है।"
   },
@@ -218,8 +242,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "戻る",
     excellence: "すべてのサービスにおける卓越性",
     rateUs: "Googleで評価する",
+    readReviews: "GOOGLEで私の顧客の評価を読む",
     reviews: "お客様の声",
     partners: "パートナー",
+    questionsResponses: "質問と回答",
     privacyPolicy: "プライバシーポリシー",
     privacyContent: "VGOIREはお客様のプライバシー保護に努めています。"
   },
@@ -233,8 +259,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Retour",
     excellence: "Excellence dans chaque service",
     rateUs: "Évaluez-nous sur Google",
+    readReviews: "LIRE LES ÉVALUATIONS DE MES CLIENTS SUR GOOGLE",
     reviews: "AVIS CLIENTS",
     partners: "NOS PARTENAIRES",
+    questionsResponses: "QUESTIONS et RÉPONSES",
     privacyPolicy: "Politique de confidentialité",
     privacyContent: "VGOIRE s'engage à protéger votre vie privée."
   },
@@ -248,8 +276,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Indietro",
     excellence: "Eccellenza in ogni servizio",
     rateUs: "Valutaci su Google",
+    readReviews: "LEGGI LE VALUTAZIONI DEI MIEI CLIENTI SU GOOGLE",
     reviews: "RECENSIONI CLIENTI",
     partners: "I NOSTRI PARTNER",
+    questionsResponses: "DOMANDE e RISPOSTE",
     privacyPolicy: "Informativa sulla privacy",
     privacyContent: "VGOIRE si impegna a proteggere la tua privacy."
   },
@@ -263,8 +293,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Zurück",
     excellence: "Exzellenz in jedem Service",
     rateUs: "Bewerten Sie uns auf Google",
+    readReviews: "LESEN SIE MEINE KUNDENBEWERTUNGEN AUF GOOGLE",
     reviews: "KUNDENBEWERTUNGEN",
     partners: "UNSERE PARTNER",
+    questionsResponses: "FRAGEN und ANTWORTEN",
     privacyPolicy: "Datenschutzerklärung",
     privacyContent: "VGOIRE setzt sich für den Schutz Ihrer Privatsphäre ein."
   },
@@ -278,8 +310,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "뒤로",
     excellence: "모든 서비스에서의 탁월함",
     rateUs: "Google에서 평가하기",
+    readReviews: "GOOGLE에서 내 고객 평점 읽기",
     reviews: "고객 리뷰",
     partners: "파트너",
+    questionsResponses: "질문 및 답변",
     privacyPolicy: "개인정보 처리방침",
     privacyContent: "VGOIRE는 귀하의 개인정보를 보호하기 위해 최선을 다하고 있습니다."
   },
@@ -293,8 +327,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Takaisin",
     excellence: "Erinomaisuus jokaisessa palvelussa",
     rateUs: "Arvioi meidät Googlessa",
+    readReviews: "LUE ASIAKKAIDENI ARVIOT GOOGLESTA",
     reviews: "ASIAKASARVOSTELUT",
     partners: "KUMPPANIMME",
+    questionsResponses: "KYSYMYKSET ja VASTAUKSET",
     privacyPolicy: "Tietosuojakäytäntö",
     privacyContent: "VGOIRE on sitoutunut suojaamaan yksityisyyttäsi."
   },
@@ -308,8 +344,10 @@ export const UI_STRINGS: Record<Language, any> = {
     back: "Πίσω",
     excellence: "Αριστεία σε κάθε υπηρεσία",
     rateUs: "Αξιολογήστε μας στο Google",
+    readReviews: "ΔΙΑΒΑΣΤΕ ΤΙΣ ΑΞΙΟΛΟΓΗΣΕΙΣ ΤΩΝ ΠΕΛΑΤΩΝ ΜΟΥ ΣΤΟ GOOGLE",
     reviews: "ΚΡΙΤΙΚΕΣ ΠΕΛΑΤΩΝ",
     partners: "ΟΙ ΣΥΝΕΡΓΑΤΕΣ ΜΑΣ",
+    questionsResponses: "ΕΡΩΤΗΣΕΙΣ και ΑΠΑΝΤΗΣΕΙΣ",
     privacyPolicy: "Πολιτική απορρήτου",
     privacyContent: "Η VGOIRE δεσμεύεται να προστατεύει το απόρρητό σας."
   }
@@ -541,7 +579,7 @@ export const SERVICES: Service[] = [
       nl: { title: 'KLANTBEOORDELINGEN', description: 'Bekijk wat onze klanten over ons zeggen en beoordeel onze diensten op Google.' },
       no: { title: 'KUNDEANMELDELSER', description: 'Se hva kundene våre sier om oss og vurder tjenestene våre på Google.' },
       hi: { title: 'ग्राहक समीक्षा', description: 'देखें कि हमारे ग्राहक हमारे बारे में क्या कहते हैं और Google पर हमारी सेवाओं को रेट करें।' },
-      ja: { title: 'お客様の声', description: 'お客様の声をチェックして、Googleで当社のサービスを評価してください。' },
+      ja: { title: 'お客様の声', description: 'お客様の声をチェックして、Googleで当社の服务を評価してください。' },
       fr: { title: 'AVIS CLIENTS', description: 'Découvrez ce que nos clients disent de nous et évaluez nos services sur Google.' },
       it: { title: 'RECENSIONI CLIENTI', description: 'Scopri cosa dicono di noi i nostri clienti e valuta i nostri servizi su Google.' },
       de: { title: 'KUNDENBEWERTUNGEN', description: 'Sehen Sie, was unsere Kunden über uns sagen, und bewerten Sie unsere Dienstleistungen auf Google.' },
@@ -609,6 +647,238 @@ export const SERVICES: Service[] = [
       ko: { title: '파트너', description: 'VGOIRE는 여행 및 번역 업계에서 가장 신뢰받는 회사들과 협력하여 고객에게 최고의 품질을 보장합니다.' },
       fi: { title: 'KUMPPANIT', description: 'VGOIRE tekee yhteistyötä matkailu- ja käännösalan luotettavimpien yritysten kanssa varmistaakseen parhaan laadun asiakkaillemme.' },
       el: { title: 'ΣΥΝΕΡΓΑΤΕΣ', description: 'Η VGOIRE συνεργάζεται με τις πιο αξιόπιστες εταιρείες στον κλάδο των ταξιδιών και των μεταφράσεων για να εξασφαλίσει την καλύτερη ποιότητα για τους πελάτες μας.' }
+    }
+  },
+  {
+    id: 'faq',
+    icon: HelpCircle,
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
+    translations: {
+      en: { 
+        title: 'QUESTIONS and RESPONSES', 
+        description: 'Find answers to the most common questions about VGOIRE services.',
+        faqItems: [
+          { question: "What is VGOIRE's primary mission?", answer: "VGOIRE is dedicated to providing premium global solutions, bridging communication and travel gaps with excellence and security." },
+          { question: "How can I request a certified translation?", answer: "You can request a quote directly via our WhatsApp integration or through the 'Certified Translations' section in the app." },
+          { question: "Are the travel bookings secure?", answer: "Yes, all bookings are handled through our trusted partners like Flytour and Oner Travel, ensuring the highest security standards." },
+          { question: "Which languages do you support?", answer: "We currently support 18 global languages, including English, Spanish, Portuguese, Chinese, Hebrew, Arabic, and more." },
+          { question: "How do I book a luxury cruise?", answer: "Visit the 'Cruises' section to explore our curated selection of luxury voyages powered by Qualitours." }
+        ]
+      },
+      es: { 
+        title: 'PREGUNTAS y RESPUESTAS', 
+        description: 'Encuentre respuestas a las preguntas más comunes sobre los servicios de VGOIRE.',
+        faqItems: [
+          { question: "¿Cuál es la misión principal de VGOIRE?", answer: "VGOIRE se dedica a proporcionar soluciones globales premium, cerrando las brechas de comunicación y viajes con excelencia y seguridad." },
+          { question: "¿Cómo puedo solicitar una traducción certificada?", answer: "Puede solicitar un presupuesto directamente a través de nuestra integración de WhatsApp o mediante la sección 'Traducciones Certificadas' en la aplicación." },
+          { question: "¿Son seguras las reservas de viaje?", answer: "Sí, todas las reservas se gestionan a través de nuestros socios de confianza como Flytour y Oner Travel, garantizando los más altos estándares de seguridad." },
+          { question: "¿Qué idiomas admiten?", answer: "Actualmente admitimos 18 idiomas globales, incluidos inglés, español, portugués, chino, hebreo, árabe y más." },
+          { question: "¿Cómo reservo un crucero de lujo?", answer: "Visite la sección 'Cruceros' para explorar nuestra selección curada de viajes de lujo impulsados por Qualitours." }
+        ]
+      },
+      pt: { 
+        title: 'PERGUNTAS e RESPOSTAS', 
+        description: 'Encontre respostas para as perguntas mais comuns sobre os serviços da VGOIRE.',
+        faqItems: [
+          { question: "Qual é a missão principal da VGOIRE?", answer: "A VGOIRE dedica-se a fornecer soluções globais premium, unindo lacunas de comunicação e viagens com excelência e segurança." },
+          { question: "Como posso solicitar uma tradução juramentada?", answer: "Você pode solicitar um orçamento diretamente através da nossa integração com o WhatsApp ou pela seção 'Traduções Juramentadas' no aplicativo." },
+          { question: "As reservas de viagens são seguras?", answer: "Sim, todas as reservas são feitas através de nossos parceiros de confiança, como Flytour e Oner Travel, garantindo os mais altos padrões de segurança." },
+          { question: "Quais idiomas vocês suportam?", answer: "Atualmente suportamos 18 idiomas globais, incluindo inglês, espanhol, português, chinês, hebraico, árabe e muito mais." },
+          { question: "Como faço para reservar um cruzeiro de luxo?", answer: "Visite a seção 'Cruzeiros' para explorar nossa seleção curada de viagens de luxo operadas pela Qualitours." }
+        ]
+      },
+      zh: { 
+        title: '问题与解答', 
+        description: '查找有关 VGOIRE 服务的常见问题解答。',
+        faqItems: [
+          { question: "VGOIRE 的主要使命是什么？", answer: "VGOIRE 致力于提供优质的全球解决方案，以卓越和安全的方式弥合沟通和旅行差距。" },
+          { question: "如何申请认证翻译？", answer: "您可以直接通过我们的 WhatsApp 集成或通过应用程序中的“认证翻译”部分请求报价。" },
+          { question: "旅行预订安全吗？", answer: "是的，所有预订均通过 Flytour 和 Oner Travel 等值得信赖的合作伙伴处理，确保最高安全标准。" },
+          { question: "你们支持哪些语言？", answer: "我们目前支持 18 种全球语言，包括英语、西班牙语、葡萄牙语、中文、希伯来语、阿拉伯语等。" },
+          { question: "如何预订豪华邮轮？", answer: "访问“邮轮”部分，探索我们由 Qualitours 提供支持的精选豪华航程。" }
+        ]
+      },
+      he: { 
+        title: 'שאלות ותשובות', 
+        description: 'מצא תשובות לשאלות הנפוצות ביותר על שירותי VGOIRE.',
+        faqItems: [
+          { question: "מהי המשימה העיקרית של VGOIRE?", answer: "VGOIRE מוקדשת למתן פתרונות גלובליים מובחרים, תוך גישור על פערי תקשורת ונסיעות במצוינות ובביטחון." },
+          { question: "כיצד אוכל לבקש תרגום מוסמך?", answer: "ניתן לבקש הצעת מחיר ישירות דרך שילוב ה-WhatsApp שלנו או דרך מדור 'תרגומים מוסמכים' באפליקציה." },
+          { question: "האם הזמנות הנסיעות מאובטחות?", answer: "כן, כל ההזמנות מטופלות באמצעות השותפים המהימנים שלנו כמו Flytour ו-Oner Travel, מה שמבטיח את תקני האבטחה הגבוהים ביותר." },
+          { question: "באילו שפות אתם תומכים?", answer: "אנו תומכים כיום ב-18 שפות גלובליות, כולל אנגלית, ספרדית, פורטוגזית, סינית, עברית, ערבית ועוד." },
+          { question: "איך מזמינים שייט יוקרתי?", answer: "בקר במדור 'שייט' כדי לחקור את מבחר הפלגות היוקרה שלנו המופעלות על ידי Qualitours." }
+        ]
+      },
+      ar: { 
+        title: 'الأسئلة والأجوبة', 
+        description: 'ابحث عن إجابات للأسئلة الأكثر شيوعًا حول خدمات VGOIRE.',
+        faqItems: [
+          { question: "ما هي المهمة الأساسية لـ VGOIRE؟", answer: "تكرس VGOIRE جهودها لتقديم حلول عالمية متميزة، وسد فجوات التواصل والسفر بتميز وأمان." },
+          { question: "كيف يمكنني طلب ترجمة معتمدة؟", answer: "يمكنك طلب عرض سعر مباشرة من خلال تكامل WhatsApp الخاص بنا أو من خلال قسم 'الترجمات المعتمدة' في التطبيق." },
+          { question: "هل حجوزات السفر آمنة؟", answer: "نعم، يتم التعامل مع جميع الحجوزات من خلال شركائنا الموثوقين مثل Flytour و Oner Travel، مما يضمن أعلى معايير الأمان." },
+          { question: "ما هي اللغات التي تدعمونها؟", answer: "نحن ندعم حاليًا 18 لغة عالمية، بما في ذلك الإنجليزية والإسبانية والبرتغالية والصينية والعبرية والعربية والمزيد." },
+          { question: "كيف يمكنني حجز رحلة بحرية فاخرة؟", answer: "قم بزيارة قسم 'الرحلات البحرية' لاستكشاف مجموعتنا المختارة من الرحلات البحرية الفاخرة المدعومة من Qualitours." }
+        ]
+      },
+      ru: { 
+        title: 'ВОПРОСЫ и ОТВЕТЫ', 
+        description: 'Найдите ответы на самые распространенные вопросы об услугах VGOIRE.',
+        faqItems: [
+          { question: "Какова основная миссия VGOIRE?", answer: "VGOIRE стремится предоставлять глобальные решения премиум-класса, преодолевая коммуникационные и туристические барьеры с превосходством и безопасностью." },
+          { question: "Как я могу запросить сертифицированный перевод?", answer: "Вы можете запросить расчет стоимости напрямую через нашу интеграцию с WhatsApp или через раздел 'Сертифицированные переводы' в приложении." },
+          { question: "Безопасны ли бронирования поездок?", answer: "Да, все бронирования осуществляются через наших доверенных партнеров, таких как Flytour и Oner Travel, что гарантирует высочайшие стандарты безопасности." },
+          { question: "Какие языки вы поддерживаете?", answer: "В настоящее время мы поддерживаем 18 мировых языков, включая английский, испанский, португальский, китайский, иврит, арабский и другие." },
+          { question: "Как забронировать роскошный круиз?", answer: "Посетите раздел 'Круизы', чтобы изучить нашу подборку роскошных путешествий от Qualitours." }
+        ]
+      },
+      ro: { 
+        title: 'ÎNTREBĂRI și RĂSPUNSURI', 
+        description: 'Găsiți răspunsuri la cele mai frecvente întrebări despre serviciile VGOIRE.',
+        faqItems: [
+          { question: "Care este misiunea principală a VGOIRE?", answer: "VGOIRE este dedicată furnizării de soluții globale premium, reducând decalajele de comunicare și călătorie cu excelență și securitate." },
+          { question: "Cum pot solicita o traducere autorizată?", answer: "Puteți solicita o ofertă direct prin integrarea noastră WhatsApp sau prin secțiunea 'Traduceri autorizate' din aplicație." },
+          { question: "Sunt sigure rezervările de călătorie?", answer: "Da, toate rezervările sunt gestionate prin partenerii noștri de încredere, cum ar fi Flytour și Oner Travel, asigurând cele mai înalte standarde de securitate." },
+          { question: "Ce limbi suportați?", answer: "În prezent suportăm 18 limbi globale, inclusiv engleză, spaniolă, portugheză, chineză, ebraică, arabă și multe altele." },
+          { question: "Cum rezerv o croazieră de lux?", answer: "Vizitați secțiunea 'Croaziere' pentru a explora selecția noastră curată de călătorii de lux oferite de Qualitours." }
+        ]
+      },
+      nl: { 
+        title: 'VRAGEN en ANTWOORDEN', 
+        description: 'Vind antwoorden op de meest gestelde vragen over de diensten van VGOIRE.',
+        faqItems: [
+          { question: "Wat is de primaire missie van VGOIRE?", answer: "VGOIRE is toegewijd aan het leveren van premium wereldwijde oplossingen, waarbij communicatie- en reiskloven worden overbrugd met uitmuntendheid en veiligheid." },
+          { question: "Hoe kan ik een beëdigde vertaling aanvragen?", answer: "U kunt direct een offerte aanvragen via onze WhatsApp-integratie of via de sectie 'Beëdigde Vertalingen' in de app." },
+          { question: "Zijn de reisboekingen veilig?", answer: "Ja, alle boekingen worden afgehandeld via onze vertrouwde partners zoals Flytour en Oner Travel, wat de hoogste veiligheidsnormen garandeert." },
+          { question: "Welke talen ondersteunen jullie?", answer: "We ondersteunen momenteel 18 wereldtalen, waaronder Engels, Spaans, Portugees, Chinees, Hebreeuws, Arabisch en meer." },
+          { question: "Hoe boek ik een luxe cruise?", answer: "Bezoek de sectie 'Cruises' om onze zorgvuldig geselecteerde luxe reizen van Qualitours te verkennen." }
+        ]
+      },
+      no: { 
+        title: 'SPØRSMÅL og SVAR', 
+        description: 'Finn svar på de vanligste spørsmålene om VGOIRE-tjenester.',
+        faqItems: [
+          { question: "Hva er VGOIREs hovedoppdrag?", answer: "VGOIRE er dedikert til å tilby førsteklasses globale løsninger, og bygge bro over kommunikasjons- og reisehull med fortreffelighet og sikkerhet." },
+          { question: "Hvordan kan jeg be om en sertifisert oversettelse?", answer: "Du kan be om et tilbud direkte via vår WhatsApp-integrasjon eller gjennom 'Sertifiserte oversettelser'-delen i appen." },
+          { question: "Er reisebestillingene sikre?", answer: "Ja, alle bestillinger håndteres gjennom våre pålitelige partnere som Flytour og Oner Travel, noe som sikrer de høyeste sikkerhetsstandardene." },
+          { question: "Hvilke språk støtter dere?", answer: "Vi støtter for øyeblikket 18 globale språk, inkludert engelsk, spansk, portugisisk, kinesisk, hebraisk, arabisk og mer." },
+          { question: "Hvordan bestiller jeg et luksuscruise?", answer: "Besøk 'Cruise'-delen for å utforske vårt utvalgte utvalg av luksusreiser drevet av Qualitours." }
+        ]
+      },
+      hi: { 
+        title: 'प्रश्न और उत्तर', 
+        description: 'VGOIRE सेवाओं के बारे में सबसे आम सवालों के जवाब खोजें।',
+        faqItems: [
+          { question: "VGOIRE का प्राथमिक मिशन क्या है?", answer: "VGOIRE प्रीमियम वैश्विक समाधान प्रदान करने के लिए समर्पित है, जो उत्कृष्टता और सुरक्षा के साथ संचार और यात्रा के अंतराल को पाटता है।" },
+          { question: "मैं प्रमाणित अनुवाद का अनुरोध कैसे कर सकता हूं?", answer: "आप सीधे हमारे व्हाट्सएप एकीकरण के माध्यम से या ऐप में 'प्रमाणित अनुवाद' अनुभाग के माध्यम से उद्धरण का अनुरोध कर सकते हैं।" },
+          { question: "क्या यात्रा बुकिंग सुरक्षित हैं?", answer: "हाँ, सभी बुकिंग फ्लाईटूर और ओनर ट्रैवल जैसे हमारे विश्वसनीय भागीदारों के माध्यम से संभाली जाती हैं, जो उच्चतम सुरक्षा मानकों को सुनिश्चित करती हैं।" },
+          { question: "आप किन भाषाओं का समर्थन करते हैं?", answer: "हम वर्तमान में अंग्रेजी, स्पेनिश, पुर्तगाली, चीनी, हिब्रू, अरबी और अन्य सहित 18 वैश्विक भाषाओं का समर्थन करते हैं।" },
+          { question: "मैं एक लक्जरी क्रूज कैसे बुक करूं?", answer: "क्वालिटोर्स द्वारा संचालित लक्जरी यात्राओं के हमारे क्यूरेटेड चयन का पता लगाने के लिए 'क्रूज' अनुभाग पर जाएं।" }
+        ]
+      },
+      ja: { 
+        title: '質問と回答', 
+        description: 'VGOIREのサービスに関するよくある質問への回答をご覧ください。',
+        faqItems: [
+          { question: "VGOIREの主な使命は何ですか？", answer: "VGOIREは、卓越性と安全性を備えたコミュニケーションと旅行のギャップを埋める、プレミアムなグローバルソリューションの提供に専念しています。" },
+          { question: "公認翻訳を依頼するにはどうすればよいですか？", answer: "WhatsApp連携を介して直接、またはアプリの「公認翻訳」セクションから見積もりを依頼できます。" },
+          { question: "旅行の予約は安全ですか？", answer: "はい、すべての予約はFlytourやOner Travelなどの信頼できるパートナーを通じて行われ、最高のセキュリティ基準を保証します。" },
+          { question: "どの言語に対応していますか？", answer: "現在、英語、スペイン語、ポルトガル語、中国語、ヘブライ語、アラビア語など、18のグローバル言語に対応しています。" },
+          { question: "豪華クルーズを予約するにはどうすればよいですか？", answer: "「クルーズ」セクションにアクセスして、Qualitoursが提供する厳選された豪華な船旅をご覧ください。" }
+        ]
+      },
+      fr: { 
+        title: 'QUESTIONS et RÉPONSES', 
+        description: 'Trouvez des réponses aux questions les plus courantes sur les services VGOIRE.',
+        faqItems: [
+          { question: "Quelle est la mission principale de VGOIRE ?", answer: "VGOIRE se consacre à fournir des solutions mondiales de premier plan, comblant les lacunes en matière de communication et de voyage avec excellence et sécurité." },
+          { question: "Comment puis-je demander une traduction certifiée ?", answer: "Vous pouvez demander un devis directement via notre intégration WhatsApp ou via la section 'Traductions certifiées' de l'application." },
+          { question: "Les réservations de voyage sont-elles sécurisées ?", answer: "Oui, toutes les réservations sont traitées par nos partenaires de confiance tels que Flytour et Oner Travel, garantissant les normes de sécurité les plus élevées." },
+          { question: "Quelles langues prenez-vous en charge ?", answer: "Nous prenons actuellement en charge 18 langues mondiales, dont l'anglais, l'espagnol, le portugais, le chinois, l'hébreu, l'arabe, etc." },
+          { question: "Comment réserver une croisière de luxe ?", answer: "Visitez la section 'Croisières' pour explorer notre sélection de voyages de luxe propulsés par Qualitours." }
+        ]
+      },
+      it: { 
+        title: 'DOMANDE e RISPOSTE', 
+        description: 'Trova le risposte alle domande più comuni sui servizi VGOIRE.',
+        faqItems: [
+          { question: "Qual è la missione principale di VGOIRE?", answer: "VGOIRE si dedica a fornire soluzioni globali premium, colmando le lacune comunicative e di viaggio con eccellenza e sicurezza." },
+          { question: "Come posso richiedere una traduzione certificata?", answer: "Puoi richiedere un preventivo direttamente tramite la nostra integrazione WhatsApp o tramite la sezione 'Traduzioni certificate' nell'app." },
+          { question: "Le prenotazioni di viaggio sono sicure?", answer: "Sì, tutte le prenotazioni sono gestite tramite i nostri partner di fiducia come Flytour e Oner Travel, garantendo i più alti standard di sicurezza." },
+          { question: "Quali lingue supportate?", answer: "Attualmente supportiamo 18 lingue globali, tra cui inglese, spagnolo, portoghese, cinese, ebraico, arabo e altre." },
+          { question: "Come prenoto una crociera di lusso?", answer: "Visita la sezione 'Crociere' per esplorare la nostra selezione curata di viaggi di lusso offerti da Qualitours." }
+        ]
+      },
+      de: { 
+        title: 'FRAGEN und ANTWORTEN', 
+        description: 'Finden Sie Antworten auf die am häufigsten gestellten Fragen zu den Dienstleistungen von VGOIRE.',
+        faqItems: [
+          { question: "Was ist die Hauptmission von VGOIRE?", answer: "VGOIRE widmet sich der Bereitstellung erstklassiger globaler Lösungen und schließt Kommunikations- und Reisemängel mit Exzellenz und Sicherheit." },
+          { question: "Wie kann ich eine beglaubigte Übersetzung anfordern?", answer: "Sie können ein Angebot direkt über unsere WhatsApp-Integration oder über den Bereich 'Beglaubigte Übersetzungen' in der App anfordern." },
+          { question: "Sind die Reisebuchungen sicher?", answer: "Ja, alle Buchungen werden über unsere vertrauenswürdigen Partner wie Flytour und Oner Travel abgewickelt, um höchste Sicherheitsstandards zu gewährleisten." },
+          { question: "Welche Sprachen unterstützen Sie?", answer: "Wir unterstützen derzeit 18 globale Sprachen, darunter Englisch, Spanisch, Portugiesisch, Chinesisch, Hebräisch, Arabisch und mehr." },
+          { question: "Wie buche ich eine Luxuskreuzfahrt?", answer: "Besuchen Sie den Bereich 'Kreuzfahrten', um unsere kuratierte Auswahl an Luxusreisen von Qualitours zu entdecken." }
+        ]
+      },
+      ko: { 
+        title: '질문 및 답변', 
+        description: 'VGOIRE 서비스에 대해 가장 자주 묻는 질문에 대한 답변을 확인하세요.',
+        faqItems: [
+          { question: "VGOIRE의 주요 임무는 무엇입니까?", answer: "VGOIRE는 탁월함과 보안을 바탕으로 커뮤니케이션과 여행의 격차를 해소하고 프리미엄 글로벌 솔루션을 제공하는 데 전념하고 있습니다." },
+          { question: "공인 번역을 어떻게 요청할 수 있나요?", answer: "WhatsApp 연동을 통해 직접 견적을 요청하거나 앱의 '공인 번역' 섹션을 통해 요청할 수 있습니다." },
+          { question: "여행 예약은 안전한가요?", answer: "예, 모든 예약은 Flytour 및 Oner Travel과 같은 신뢰할 수 있는 파트너를 통해 처리되어 최고의 보안 표준을 보장합니다." },
+          { question: "어떤 언어를 지원하나요?", answer: "현재 영어, 스페인어, 포르투갈어, 중국어, 히브리어, 아랍어 등 18개 글로벌 언어를 지원합니다." },
+          { question: "호화 크루즈는 어떻게 예약하나요?", answer: "Qualitours가 제공하는 엄선된 호화 항해를 살펴보려면 '크루즈' 섹션을 방문하세요." }
+        ]
+      },
+      fi: { 
+        title: 'KYSYMYKSET ja VASTAUKSET', 
+        description: 'Löydä vastaukset yleisimpiin kysymyksiin VGOIRE-palveluista.',
+        faqItems: [
+          { question: "Mikä on VGOIRE:n ensisijainen tehtävä?", answer: "VGOIRE on omistautunut tarjoamaan ensiluokkaisia globaaleja ratkaisuja, kuroen umpeen viestintä- ja matkustusaukkoja erinomaisuudella ja turvallisuudella." },
+          { question: "Miten voin pyytää auktorisoidun käännöksen?", answer: "Voit pyytää tarjouksen suoraan WhatsApp-integraatiomme kautta tai sovelluksen 'Auktorisoidut käännökset' -osion kautta." },
+          { question: "Ovatko matkavaraukset turvallisia?", answer: "Kyllä, kaikki varaukset hoidetaan luotettavien kumppaneidemme, kuten Flytourin ja Oner Travelin, kautta, mikä takaa korkeimmat turvallisuusstandardit." },
+          { question: "Mitä kieliä tuette?", answer: "Tuemme tällä hetkellä 18 maailmanlaajuista kieltä, mukaan lukien englanti, espanja, portugali, kiina, heprea, arabia ja paljon muuta." },
+          { question: "Miten varaan luksusristeilyn?", answer: "Vieraile 'Risteilyt'-osiossa tutustuaksesi Qualitoursin tarjoamiin kuratoituihin luksusmatkoihimme." }
+        ]
+      },
+      el: { 
+        title: 'ΕΡΩΤΗΣΕΙΣ και ΑΠΑΝΤΗΣΕΙΣ', 
+        description: 'Βρείτε απαντήσεις στις πιο συνηθισμένες ερωτήσεις σχετικά με τις υπηρεσίες της VGOIRE.',
+        faqItems: [
+          { question: "Ποια είναι η κύρια αποστολή της VGOIRE;", answer: "Η VGOIRE είναι αφοσιωμένη στην παροχή κορυφαίων παγκόσμιων λύσεων, γεφυρώνοντας τα κενά επικοινωνίας και ταξιδιών με αριστεία και ασφάλεια." },
+          { question: "Πώς μπορώ να ζητήσω μια επίσημη μετάφραση;", answer: "Μπορείτε να ζητήσετε μια προσφορά απευθείας μέσω της ενσωμάτωσης WhatsApp ή μέσω της ενότητας 'Επίσημες Μεταφράσεις' στην εφαρμογή." },
+          { question: "Είναι ασφαλείς οι ταξιδιωτικές κρατήσεις;", answer: "Ναι, όλες οι κρατήσεις διεκπεραιώνονται μέσω των έμπιστων συνεργατών μας όπως η Flytour και η Oner Travel, διασφαλίζοντας τα υψηλότερα πρότυπα ασφαλείας." },
+          { question: "Ποιες γλώσσες υποστηρίζετε;", answer: "Υποστηρίζουμε επί του παρόντος 18 παγκόσμιες γλώσσες, συμπεριλαμβανομένων των Αγγλικών, Ισπανικών, Πορτογαλικών, Κινεζικών, Εβραϊκών, Αραβικών και άλλων." },
+          { question: "Πώς μπορώ να κλείσω μια κρουαζιέρα πολυτελείας;", answer: "Επισκεφθείτε την ενότητα 'Κρουαζιέρες' για να εξερευνήσετε την επιλεγμένη συλλογή μας από ταξίδια πολυτελείας που υποστηρίζονται από την Qualitours." }
+        ]
+      }
+    }
+  },
+  {
+    id: 'google_rates',
+    icon: Star,
+    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200',
+    //externalPlatformLink: 'https://www.google.com/search?q=tradutor+em+porto+velho+ro&rlz=1C1GCEA_enBR1167BR1184&oq=TRAD&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIPCAEQRRg5GIMBGLEDGIAEMgYIAhAjGCcyEggDEAAYQxiDARixAxiABBiKBTINCAQQABiDARixAxiABDIMCAUQABhDGIAEGIoFMgcIBhAAGI8CMgcIBxAAGI8CMgcICBAAGI8C0gEJNjEzNGowajE1qAIMsAIB8QUwVehxl9Aovw&sourceid=chrome&ie=UTF-8#mpd=~14647349417961252840/customers/reviews',
+    externalPlatformLink: 'https://www.google.com/search?q=Tradu%C3%A7%C3%B5es+VGOIRE#lrd=0x92325d2cf06b9af3:0x32abe3bef477542f,1,,,,',
+    translations: {
+      en: { title: 'CLIENT RATINGS', description: 'Access our official Google page to read all the ratings and reviews from our clients.' },
+      es: { title: 'CALIFICACIONES DE CLIENTES', description: 'Acceda a nuestra página oficial de Google para leer todas las calificaciones y opiniones de nuestros clientes.' },
+      pt: { title: 'AVALIAÇÕES NO GOOGLE', description: 'Acesse nossa página oficial no Google para ler todas as avaliações e comentários de nossos clientes.' },
+      zh: { title: '客户评分', description: '访问我们的官方 Google 页面，阅读客户的所有评分和评价。' },
+      he: { title: 'דירוגי לקוחות', description: 'גש לדף הגוגל הרשמי שלנו כדי לקרוא את כל הדירוגים והביקורות מהלקוחות שלנו.' },
+      ar: { title: 'تقييمات العملاء', description: 'قم بالوصول إلى صفحتنا الرسمية على Google لقراءة جميع التقييمات والمراجعات من عملائنا.' },
+      ru: { title: 'РЕЙТИНГИ КЛИЕНТОВ', description: 'Перейдите на нашу официальную страницу в Google, чтобы прочитать все рейтинги и отзывы наших клиентов.' },
+      ro: { title: 'EVALUĂRI CLIENȚI', description: 'Accesați pagina noastră oficială Google pentru a citi toate evaluările și recenziile clienților noștri.' },
+      nl: { title: 'KLANTBEOORDELINGEN GOOGLE', description: 'Ga naar onze officiële Google-pagina om alle beoordelingen en recensies van onze klanten te lezen.' },
+      no: { title: 'KUNDEVURDERINGER', description: 'Gå til vår offisielle Google-side for å lese alle vurderinger og anmeldelser fra våre kunder.' },
+      hi: { title: 'ग्राहक रेटिंग', description: 'हमारे ग्राहकों की सभी रेटिंग और समीक्षाएं पढ़ने के लिए हमारे आधिकारिक Google पेज पर जाएं।' },
+      ja: { title: '顧客評価', description: '公式Googleページにアクセスして、お客様からのすべての評価とレビューをお読みください。' },
+      fr: { title: 'ÉVALUATIONS CLIENTS', description: 'Accédez à notre page Google officielle pour lire tous les classements et avis de nos clients.' },
+      it: { title: 'VALUTAZIONI CLIENTI', description: 'Accedi alla nostra pagina Google ufficiale per leggere tutte le valutazioni e le recensioni dei nostri clientes.' },
+      de: { title: 'KUNDENBEWERTUNGEN GOOGLE', description: 'Besuchen Sie unsere offizielle Google-Seite, um alle Bewertungen und Rezensionen unserer Kunden zu lesen.' },
+      ko: { title: '고객 평점', description: '공식 Google 페이지에 접속하여 고객의 모든 평점과 리뷰를 확인하세요.' },
+      fi: { title: 'ASIAKASLUOKITUKSET', description: 'Siirry viralliselle Google-sivullemme lukeaksesi kaikki asiakkaidemme arviot ja arvostelut.' },
+      el: { title: 'ΑΞΙΟΛΟΓΗΣΕΙΣ ΠΕΛΑΤΩΝ', description: 'Μεταβείτε στην επίσημη σελίδα μας στο Google για να διαβάσετε όλες τις αξιολογήσεις και τις κριτικές των πελατών μας.' }
     }
   },
 ];

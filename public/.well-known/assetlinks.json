@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.vgoire.app",
+      "package_name": "com.vgoire.travel",
       "sha256_cert_fingerprints": [
-        "YOUR_SHA256_FINGERPRINT_HERE"
+        "01:25:5B:88:22:07:A7:82:39:45:6F:CA:D1:21:B4:75:A0:81:1F:F4:84:5A:AE:38:09:D8:66:B0:B8:AF:A8:23"
       ]
     }
   }

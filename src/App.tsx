@@ -13,8 +13,8 @@ import {
   ArrowRight,
   ShieldCheck,
   Languages as LanguagesIcon,
-  Play,
   Handshake,
+  HelpCircle,
 } from 'lucide-react';
 import { 
   SERVICES, 
@@ -31,23 +31,34 @@ import {
 const LanguageSelector = ({ currentLang, onSelect }: { currentLang: Language, onSelect: (lang: Language) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isOpen && !target.closest('.language-selector-container')) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
   return (
-    <div className="relative">
+    <div className="relative language-selector-container">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-2 rounded-full border border-white/20 hover:bg-white/20 transition-colors"
+        className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-full border border-white/20 hover:bg-white/20 transition-all active:scale-95"
       >
-        <LanguagesIcon className="w-4 h-4 text-vgoire-gold" />
-        <span className="text-xs font-medium uppercase">{currentLang}</span>
+        <LanguagesIcon className="w-5 h-5 text-vgoire-gold" />
+        <span className="text-sm font-bold uppercase tracking-wider">{currentLang}</span>
       </button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            className="absolute right-0 mt-2 w-48 bg-vgoire-blue/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden"
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            className="absolute right-0 mt-3 w-64 bg-vgoire-blue/98 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 overflow-y-auto max-h-[60vh] custom-scrollbar ring-1 ring-white/10"
           >
             {LANGUAGES.map((lang) => (
               <button
@@ -56,7 +67,7 @@ const LanguageSelector = ({ currentLang, onSelect }: { currentLang: Language, on
                   onSelect(lang.code);
                   setIsOpen(false);
                 }}
-                className={`w-full text-left px-4 py-3 text-sm hover:bg-vgoire-gold hover:text-vgoire-blue transition-colors flex items-center justify-between ${currentLang === lang.code ? 'text-vgoire-gold' : 'text-white'}`}
+                className={`w-full text-left px-5 py-4 text-sm hover:bg-vgoire-gold hover:text-vgoire-blue transition-colors flex items-center justify-between border-b border-white/5 last:border-0 ${currentLang === lang.code ? 'text-vgoire-gold font-bold' : 'text-white'}`}
               >
                 <span>{lang.name}</span>
                 {currentLang === lang.code && <div className="w-1.5 h-1.5 bg-current rounded-full" />}
@@ -121,27 +132,41 @@ const SplashScreen = ({ onComplete, lang }: { onComplete: () => void, lang: Lang
 
 const ServiceCard = ({ service, lang, onClick }: { service: Service, lang: Language, onClick: () => void, key?: string }) => {
   const content = service.translations[lang];
+  const isEnlarged = service.id === 'google_rates' || service.id === 'vgoire_videos';
+
   return (
     <motion.div
       whileHover={{ y: -8 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className="glass-card cursor-pointer group relative"
+      className={`glass-card cursor-pointer group relative ${isEnlarged ? 'md:col-span-2 lg:col-span-3' : ''}`}
     >
-      <div className="relative h-56 overflow-hidden">
+      <div className={`relative ${isEnlarged ? 'h-64 md:h-80' : 'h-56'} overflow-hidden`}>
         <img 
           src={service.image} 
           alt={content.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-vgoire-blue via-vgoire-blue/20 to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-vgoire-blue via-vgoire-blue/10 to-transparent opacity-60" />
         <div className="absolute top-4 right-4 p-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20">
-          <service.icon className="w-5 h-5 text-white" />
+          <service.icon className={`${isEnlarged ? 'w-8 h-8' : 'w-5 h-5'} text-white`} />
         </div>
+        {isEnlarged && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="text-center px-6">
+              <h3 className="text-vgoire-gold text-2xl md:text-4xl font-bold tracking-widest uppercase mb-2 drop-shadow-2xl">
+                {content.title}
+              </h3>
+              <p className="text-white/80 text-sm md:text-base max-w-2xl mx-auto drop-shadow-lg">
+                {content.description}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
-      <div className="p-6 flex flex-col items-center -mt-10 relative z-10">
-        <button className="gold-button w-full flex items-center justify-center gap-3 group-hover:shadow-vgoire-gold/50">
+      <div className={`p-6 flex flex-col items-center ${isEnlarged ? '-mt-12' : '-mt-10'} relative z-10`}>
+        <button className={`gold-button ${isEnlarged ? 'max-w-md' : 'w-full'} flex items-center justify-center gap-3 group-hover:shadow-vgoire-gold/50`}>
           <span className="truncate">{content.title}</span>
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </button>
@@ -150,7 +175,7 @@ const ServiceCard = ({ service, lang, onClick }: { service: Service, lang: Langu
   );
 };
 
-const ServiceDetail = ({ service, lang, onBack }: { service: Service, lang: Language, onBack: () => void, key?: string }) => {
+const ServiceDetail = ({ service, lang, onBack, onLangChange }: { service: Service, lang: Language, onBack: () => void, onLangChange: (lang: Language) => void, key?: string }) => {
   const content = service.translations[lang];
   const t = UI_STRINGS[lang];
   const isRtl = LANGUAGES.find(l => l.code === lang)?.dir === 'rtl';
@@ -175,10 +200,13 @@ const ServiceDetail = ({ service, lang, onBack }: { service: Service, lang: Lang
         <div className="absolute inset-0 bg-gradient-to-b from-vgoire-blue/40 via-transparent to-vgoire-blue" />
         <button 
           onClick={onBack}
-          className={`absolute top-8 ${isRtl ? 'right-8' : 'left-8'} w-12 h-12 bg-black/40 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-vgoire-gold hover:text-vgoire-blue transition-all border border-white/10 shadow-xl`}
+          className={`absolute top-8 ${isRtl ? 'right-8' : 'left-8'} w-12 h-12 bg-black/40 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-vgoire-gold hover:text-vgoire-blue transition-all border border-white/10 shadow-xl z-20`}
         >
           <ChevronLeft className={`w-6 h-6 ${isRtl ? 'rotate-180' : ''}`} />
         </button>
+        <div className={`absolute top-8 ${isRtl ? 'left-8' : 'right-8'} z-20`}>
+          <LanguageSelector currentLang={lang} onSelect={onLangChange} />
+        </div>
       </div>
 
       <div className="px-6 -mt-16 relative z-10 max-w-3xl mx-auto">
@@ -217,28 +245,6 @@ const ServiceDetail = ({ service, lang, onBack }: { service: Service, lang: Lang
           </div>
         )}
 
-        {service.videos && (
-          <div className="mb-10">
-            <h3 className="text-vgoire-gold font-bold uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
-              <Play className="w-4 h-4" />
-              Videos
-            </h3>
-            <div className="space-y-4">
-              {service.videos.map((video, idx) => (
-                <div key={idx} className="aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
-                  <iframe 
-                    src={video} 
-                    title={`Video ${idx}`}
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
         {service.partners && (
           <div className="mb-10">
             <h3 className="text-vgoire-gold font-bold uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
@@ -266,6 +272,53 @@ const ServiceDetail = ({ service, lang, onBack }: { service: Service, lang: Lang
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {content.faqItems && (
+          <div className="mb-10">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-vgoire-gold font-bold uppercase tracking-widest text-sm flex items-center gap-2">
+                <HelpCircle className="w-4 h-4" />
+                {t.questionsResponses}
+              </h3>
+              
+            </div>
+
+            <div className="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl">
+              <div className="space-y-10">
+                {content.faqItems.map((item, idx) => (
+                  <div key={idx} className="relative group">
+                    <div className="flex flex-col gap-3">
+                      <div className="flex items-start gap-4">
+                        <span className="text-vgoire-gold/30 font-mono text-xs mt-1">Q.{String(idx + 1).padStart(2, '0')}</span>
+                        <div className="flex-1">
+                          
+                            <div className="text-white/90 font-medium italic leading-relaxed border-b border-white/10 pb-2 min-h-[2rem]">
+                              {item.question || '________________________________________________________________________________'}
+                            </div>
+                         
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-4 pl-8">
+                        <span className="text-vgoire-gold/30 font-mono text-xs mt-1">A.{String(idx + 1).padStart(2, '0')}</span>
+                        <div className="flex-1">
+                          
+                            <div className="text-white/60 text-sm leading-relaxed border-b border-white/5 pb-2 min-h-[3rem]">
+                              {item.answer || '________________________________________________________________________________'}
+                            </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-12 pt-6 border-t border-white/10 flex justify-between items-center text-[10px] uppercase tracking-[0.2em] text-vgoire-gold/40 font-bold">
+                <span>Official VGOIRE Information Record</span>
+                <span>Verified & Secured</span>
+              </div>
             </div>
           </div>
         )}
@@ -316,7 +369,7 @@ const ServiceDetail = ({ service, lang, onBack }: { service: Service, lang: Lang
               className="gold-button flex items-center justify-center gap-4 text-lg py-4"
             >
               <ExternalLink className="w-7 h-7" />
-              {service.id === 'reviews' ? t.rateUs : (service.id === 'partners' ? t.accessPartnersPlatform : t.accessPlatform)}
+              {service.id === 'reviews' ? t.rateUs : (service.id === 'google_rates' ? t.readReviews : (service.id === 'partners' ? t.accessPartnersPlatform : t.accessPlatform))}
             </a>
           )}
         </div>
@@ -364,6 +417,7 @@ export default function App() {
             service={selectedService} 
             lang={lang}
             onBack={() => setSelectedService(null)} 
+            onLangChange={setLang}
           />
         ) : (
           <motion.div
@@ -396,17 +450,19 @@ export default function App() {
                 <motion.div 
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="mb-6 flex items-center gap-6"
+                  className="mb-6 flex flex-col items-center gap-6"
                 >
-                  <div className="w-20 h-20 bg-vgoire-blue rounded-2xl flex items-center justify-center shadow-xl overflow-hidden border-2 border-vgoire-gold/30">
-                    <img 
-                      src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&q=80&w=256&h=256" 
-                      alt="VGOIRE Icon"
-                      className="w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
+                  <div className="flex items-center gap-6">
+                    <div className="w-20 h-20 bg-vgoire-blue rounded-2xl flex items-center justify-center shadow-xl overflow-hidden border-2 border-vgoire-gold/30">
+                      <img 
+                        src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&q=80&w=256&h=256" 
+                        alt="VGOIRE Icon"
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <h1 className="text-6xl font-black text-white tracking-tighter drop-shadow-2xl">VGOIRE</h1>
                   </div>
-                  <h1 className="text-6xl font-black text-white tracking-tighter drop-shadow-2xl">VGOIRE</h1>
                 </motion.div>
                 <div className="h-1 w-32 bg-vgoire-gold mx-auto rounded-full mb-4" />
                 <p className="text-vgoire-gold font-bold tracking-[0.4em] uppercase text-xs">
