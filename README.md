@@ -1,17 +1,14 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# VGOIRE TRADUÇÕES
 
-# Run and deploy your AI Studio app
+A VGOIRE torna comunicação, viagens e aprendizado mais simples. Nosso aplicativo na Play Store oferece traduções juramentadas, técnicas e simples em 16 idiomas. Planeje viagens nacionais e internacionais, aproveite cruzeiros de luxo, reserve hotéis e alugue carros em qualquer lugar. Aprenda inglês ou espanhol com aulas personalizadas ou prepare-se para exames como TOEFL, IELTS, DELE e Duolingo. Também oferecemos legendagem em inglês, espanhol e português brasileiro. Honestos, humildes e comprometidos, na VGOIRE servimos com excelência. Baixe hoje!
 
-This contains everything you need to run your app locally.
+Disponível na Play Store: https://play.google.com/store/apps/details?id=com.vgoire.travel
 
-View your app in AI Studio: https://ai.studio/apps/16b17999-e042-4bae-add3-b8e4704c9a5e
+Online em: https://vgoire.github.io/VGOIRE-APP/
 
 ## Run Locally
 
 **Prerequisites:**  Node.js
-
 
 1. Install dependencies:
    `npm install`
