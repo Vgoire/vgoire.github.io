@@ -12,7 +12,7 @@
     "lint": "tsc --noEmit",
     "deploy": "npm run build && gh-pages -d dist"
   },
-  "homepage": "https://vgoire.github.io/VGOIRE-APP/",
+  "homepage": "https://vgoire.github.io/",
   "dependencies": {
     "@google/genai": "^1.29.0",
     "@tailwindcss/vite": "^4.1.14",

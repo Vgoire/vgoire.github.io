@@ -4,7 +4,7 @@ A VGOIRE torna comunicação, viagens e aprendizado mais simples. Nosso aplicati
 
 Disponível na Play Store: https://play.google.com/store/apps/details?id=com.vgoire.travel
 
-Online em: https://vgoire.github.io/VGOIRE-APP/
+Online em: https://vgoire.github.io/
 
 ## Run Locally
 
