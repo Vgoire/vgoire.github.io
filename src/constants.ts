@@ -658,11 +658,88 @@ export const SERVICES: Service[] = [
         title: 'QUESTIONS and RESPONSES', 
         description: 'Find answers to the most common questions about VGOIRE services.',
         faqItems: [
-          { question: "What is VGOIRE's primary mission?", answer: "VGOIRE is dedicated to providing premium global solutions, bridging communication and travel gaps with excellence and security." },
-          { question: "How can I request a certified translation?", answer: "You can request a quote directly via our WhatsApp integration or through the 'Certified Translations' section in the app." },
-          { question: "Are the travel bookings secure?", answer: "Yes, all bookings are handled through our trusted partners like Flytour and Oner Travel, ensuring the highest security standards." },
-          { question: "Which languages do you support?", answer: "We currently support 18 global languages, including English, Spanish, Portuguese, Chinese, Hebrew, Arabic, and more." },
-          { question: "How do I book a luxury cruise?", answer: "Visit the 'Cruises' section to explore our curated selection of luxury voyages powered by Qualitours." }
+          { 
+            question: "What is VGOIRE's primary mission?", 
+            answer: "VGOIRE is dedicated to providing premium global solutions, bridging communication and travel gaps with excellence and security." },
+          { 
+            question: "How can I request a certified translation?", 
+            answer: "You can request a quote directly via our WhatsApp integration or through the 'Certified Translations' section in the app." },
+          { 
+            question: "Are the travel bookings secure?", 
+            answer: "Yes, all bookings are handled through our trusted partners like Flytour and Oner Travel, ensuring the highest security standards." },
+          { 
+            question: "Which languages do you support?", 
+            answer: "We currently support 18 global languages, including English, Spanish, Portuguese, Chinese, Hebrew, Arabic, and more." },
+          { 
+            question: "How do I book a luxury cruise?", 
+            answer: "Visit the 'Cruises' section to explore our curated selection of luxury voyages powered by Qualitours." },
+          { 
+            question: "What is the Hague Apostille?", 
+            answer: "The Apostille is a certificate of authenticity issued by countries that are signatories to the Hague Convention, which is affixed to a public document to attest to its origin (signature, public official's position, seal or stamp of the institution). This apostilled public document will be presented in another country, also a signatory to the Hague Convention, since the Apostille is only valid between signatory countries." },
+          {
+            question: "What are the effects of the Apostille?",
+            answer: "The Apostille only certifies the origin of the public document, not the document itself. In other words, it certifies the authenticity of the signature (notarization) of the person, the function or position held by the signatory of the document and, where applicable, the authenticity of the seal or stamp affixed to it. The Apostille does not certify the content of the document, nor should it be used for recognition within the country in which it was issued."
+          },
+          {
+            question: "What types of documents does the Apostille apply to?",
+            answer: "Only public documents or those of a private nature that have been previously authenticated by a notary or competent public authority, which have public faith, can be apostilled. Article 1 of the Convention establishes that public documents are: a) documents emanating from an authority or public official connected with any jurisdiction of the State, including documents emanating from the Public Prosecutor's Office, a court clerk or a bailiff; b) administrative documents; c) notarial acts; d) official declarations affixed to documents of a private nature, such as certificates proving the registration of a document or its existence on a given date, and signature acknowledgments. Each country can define which documents it considers eligible for apostille."
+          },
+          {
+            question: "To which documents does the Apostille not apply?",
+            answer: "The Apostille Convention does not apply to documents issued by diplomatic or consular agents. Administrative documents related to commercial or customs operations are also excluded, in cases where legalization was no longer necessary according to existing rules, agreements, and understandings. In the case of commercial documents that are usually legalized, an apostille may be issued, which will facilitate trade and investment flows. It should be kept in mind that the objective of the Apostille Convention is always to simplify the international document processing process, and not to create previously non-existent bureaucratic procedures. Finally, the Apostille does not apply to documents to be presented in countries that are not signatories to the Hague Convention. In these cases, the legalization process will continue to be carried out by the Ministry of Foreign Affairs, through its regional offices (in Brazil) and Embassies and Consular Offices (abroad)."
+          },
+          {
+            question: "Do I need an Apostille every time I need to present a document abroad?",
+            answer: "Not necessarily. Some countries have treaties with Brazil that waive the need for diplomatic or consular legalization, such as France, for example. In these cases, an Apostille is also not required. It is always recommended to consult the representation of the country where the document will be valid regarding the need for an Apostille or other procedures."
+          },
+          {
+            question: "How many countries are currently part of the Hague Convention?",
+            answer: "There are 127 countries so far."
+          },
+          {
+            question: "Does the apostilled document need to be an original?",
+            answer: "No. Certified copies can also be apostilled."
+          },
+          {
+            question: "How does the apostille process work in practice? How should I proceed, both to obtain an apostille and to have an apostilled document recognized abroad?",
+            answer: "For a document to receive the Apostille certificate, simply take it to one of the authorized notary offices. The apostille process includes both a physical and an electronic copy. The physical copy will be issued along with the document, attached or appended to it. The electronic copy is registered in a dedicated system and will be used both for control by Brazilian authorities and for consultation by foreign authorities regarding Apostilles issued in Brazil. Furthermore, interested foreign parties can verify the authenticity of the Apostille issued in Brazil through a code (QR Code) included on the physical Apostille itself. Foreign documents, once apostilled abroad, will also be valid in Brazil with the relevant authorities, bodies, and institutions. The Ministry of Foreign Affairs – or its representations abroad – will no longer be involved in the process. It is important to note that certain formalities may be required in Brazil, such as translation into Portuguese. The competent authority for apostille services abroad varies from country to country. We suggest consulting the embassy or consulates of the country that issued the document, or the list of competent authorities of the Apostille Convention. You can find this list on the Brazilian National Council of Justice website using the following page: cnj.jus.br/perguntas-frequentes."
+          },
+          {
+            question: "Are translations of Brazilian documents required to be notarized?",
+            answer: "It depends on the requirements of the country where the document will be presented. Each country may have different procedures. For this reason, it is important to contact the representation of the country of destination of the documents to be apostilled."
+          },
+          {
+            question: "Is it mandatory to have the electronic signature of a sworn translator notarized?",
+            answer: "No. All sworn translators have public faith. Therefore, their electronic signatures do not need to be notarized."
+          },
+          {
+            question: "Should the translation be done before or after the apostille?",
+            answer: "Generally, the document to be presented abroad is translated first, and then both (original and translated) are apostilled. It is important to note that for documents to be presented to a Brazilian authority, the certified translation must be done in Brazil."
+          },
+          {
+            question: "Regarding translations, is it necessary to issue an Apostille for the translation and another for the original document? Or is one apostille sufficient?",
+            answer: "Two apostilles should be issued: one for the original document and one for the translation, as they are independent documents. We remind you that it is always prudent to request information from the representation of the country where the document will be presented regarding the need to present a simple or sworn translation along with the original document, or regarding the acceptance of translations done by Brazilian translators (some countries may require that the translation be done by a national of their country)."
+          },
+          {
+            question: "Are foreign documents that have been apostilled and translated (into Portuguese) by official translators from those countries valid in Brazil? Or only those translated by Brazilian translators?",
+            answer: "In Brazil, foreign documents, even those with apostilles, are only valid with a sworn translation. This translation, in turn, can only be done in Brazil. This matter is regulated by Article 192 of the Code of Civil Procedure, Article 236 of the Code of Criminal Procedure, Decree 13.609/1943, and also Article 216-C of the Internal Regulations of the Superior Court of Justice."
+          },
+          {
+            question: "Can I search for domestic and international hotels on the VGOIRE travel platform?",
+            answer: "On the VGOIRE travel platform, you can only search for domestic hotels within Brazil. If you need to search for international hotels, you must contact a VGOIRE travel agent using the company's business number, which is: +55-69-9-8123-2697."
+          },
+          {
+            question: "Can I search for domestic and international cars on the VGOIRE travel platform?",
+            answer: "On the VGOIRE travel platform, you can only search for domestic cars within Brazil. If you need to search for international cars, you must contact the VGOIRE travel agent using the company's business number, which is: +55-69-9-8123-2697."
+          },
+          {
+            question: "If I find a good deal on travel, hotels, cars, or a great tour package, what do I need to do to purchase what I need on the VGOIRE platform?",
+            answer: "You can follow these steps: 1) Select what you want to buy. 2) Click the PAYMENTS button. 3) After clicking the PAYMENTS button, you will see an option to register on the platform to complete your purchase securely. To ensure your purchase is secure, enter your personal email address. Then, open your email, find the 6-digit code sent from our platform's headquarters, and enter those 6 numbers in the field provided by the platform. 4) Once your email address has been verified, you will enter the forms area where you will enter your personal information to prepare your ticket or voucher for the service you need. 5) After completing the forms, you will be taken to the PAYMENTS page. There, you can choose the option that suits your conditions, make the payment and 6) you will immediately receive the voucher or vouchers for the service or services you requested in your personal email that you provided."
+          },
+          {
+            question: "Information about the Spanish course.",
+            answer: "You will learn Spanish with a native instructor from Cuba, who is also the owner of VGOIRE. The course lasts approximately two years. It consists of two 1.5-hour classes per week. Classes are held online using Google Meet or Microsoft Teams. However, if the student lives in Porto Velho, Rondônia, Brazil, within a reasonable distance, in-person classes may be possible. You will learn Spanish with a modern, dynamic, varied, and personalized method, using excellent materials from Spain. You can obtain more information by contacting the owner of VGOIRE. In addition to Spanish classes, if needed, you can receive training to take internationally recognized Spanish exams such as the DELE. Here at VGOIRE, you can be trained for all levels: A1, A2, B1, B2, C1, and C2."
+          }
         ]
       },
       es: { 
