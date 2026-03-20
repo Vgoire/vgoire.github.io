@@ -21,7 +21,7 @@ export interface Service {
 export const WHATSAPP_NUMBER = "5569981232697";
 export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const TRAVEL_PLATFORM_URL = "https://www.comprarviagem.com.br/vgoirestrips";
-export const OFFICIAL_WEBSITE_URL = "https://tevgoire.com.br/";
+
 
 export const LANGUAGES: { code: Language; name: string; dir: 'ltr' | 'rtl' }[] = [
   { code: 'en', name: 'English', dir: 'ltr' },
