@@ -414,7 +414,7 @@ export const SERVICES: Service[] = [
     translations: {
       en: { title: 'HOTEL BOOKINGS', description: 'Find the best hotels for your stay with exclusive rates worldwide.' },
       es: { title: 'RESERVAS DE HOTEL', description: 'Encuentre los mejores hoteles para su estancia con tarifas exclusivas en todo el mundo.' },
-      pt: { title: 'RESERVAS DE HOTEL', description: 'Encontre os melhores hotéis para sua estadia com tarifas exclusivas em todo el mundo.' },
+      pt: { title: 'RESERVAS DE HOTEL', description: 'Encontre os melhores hotéis para sua estadia com tarifas exclusivas no mundo todo.' },
       zh: { title: '酒店预订', description: '在全球范围内以专属价格为您寻找最佳酒店。' },
       he: { title: 'הזמנת מלונות', description: 'מצא את המלונות הטובים ביותר לשהותך בתעריפים בלעדיים ברחבי העולם.' },
       ar: { title: 'حجز الفنادق', description: 'ابحث عن أفضل الفنادق لإقامتك بأسعار حصرية في جميع أنحاء العالم.' },
@@ -438,9 +438,9 @@ export const SERVICES: Service[] = [
     image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800',
     externalPlatformLink: TRAVEL_PLATFORM_URL,
     translations: {
-      en: { title: 'CAR RENTAL', description: 'Rent luxury, safe, and comfortable cars for your trips worldwide.' },
-      es: { title: 'ALQUILER DE AUTOS', description: 'Alquile autos de lujo, seguros y cómodos para sus viajes en todo el mundo.' },
-      pt: { title: 'ALUGUEL DE CARROS', description: 'Alugue carros luxuosos, seguros e confortáveis para suas viagens em todo o mundo.' },
+      en: { title: 'CAR RENTAL', description: 'Rent simple, practical and confortable cars in Brazil.' },
+      es: { title: 'ALQUILER DE AUTOS', description: 'Alquile autos sencillos, prácticos y cómodos en Brasil.' },
+      pt: { title: 'ALUGUEL DE CARROS', description: 'Alugue carros simples, funcionais e bem confortáveis no Brasil.' },
       zh: { title: '租车服务', description: '为您的全球旅行租赁豪华、安全且舒适的汽车。' },
       he: { title: 'השכרת רכב', description: 'שכור רכבי יוקרה, בטוחים ונוחים לנסיעותיך ברחבי העולם.' },
       ar: { title: 'تأجير السيارات', description: 'استأجر سيارات فاخرة وآمنة ومريحة لرحلاتك حول العالم.' },
