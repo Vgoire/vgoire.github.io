@@ -22,7 +22,7 @@ export const WHATSAPP_NUMBER = "5569981232697";
 export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const TRAVEL_PLATFORM_URL = "https://www.comprarviagem.com.br/vgoirestrips";
 export const INSTAGRAM_URL = "https://www.instagram.com/vladimirgoire/";
-export const YOTUBE_URL_TRIPS = "https://www.youtube.com/watch?v=xYgKO7EMWIc";
+export const YOTUBE_URL_TRIPS = "https://www.youtube.com/watch?v=Ls-elZIb0f8";
 
 export const LANGUAGES: { code: Language; name: string; dir: 'ltr' | 'rtl' }[] = [
   { code: 'en', name: 'English', dir: 'ltr' },
