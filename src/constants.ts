@@ -1,4 +1,4 @@
-import { LucideIcon, Languages, Plane, Hotel, Car, Ship, GraduationCap, FileCheck, Subtitles, Globe, Handshake, HelpCircle, Star, Play } from 'lucide-react';
+import { LucideIcon, Languages, Plane, Hotel, Car, Ship, GraduationCap, FileCheck, Subtitles, Globe, Handshake, HeartHandshake, HelpCircle, Star, Play } from 'lucide-react';
 
 export type Language = 'en' | 'es' | 'pt' | 'zh' | 'he' | 'ar' | 'ru' | 'ro' | 'nl' | 'no' | 'hi' | 'ja' | 'fr' | 'it' | 'de' | 'ko' | 'fi' | 'el';
 
@@ -23,6 +23,14 @@ export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const TRAVEL_PLATFORM_URL = "https://www.comprarviagem.com.br/vgoirestrips";
 export const INSTAGRAM_URL = "https://www.instagram.com/vladimirgoire/";
 export const YOTUBE_URL_TRIPS = "https://www.youtube.com/watch?v=Ls-elZIb0f8";
+
+// ---------------------------------------------------------------------------
+// OFERTAS DE CRUZEIROS DA SEMANA
+// Para publicar a oferta nova, troque SOMENTE o endereço entre aspas abaixo e
+// rode "npm run deploy". Nenhum outro arquivo precisa ser alterado.
+// Enquanto não houver oferta da semana, deixe a plataforma de viagens.
+// ---------------------------------------------------------------------------
+export const CRUISE_OFFERS_URL = TRAVEL_PLATFORM_URL;
 
 export const LANGUAGES: { code: Language; name: string; dir: 'ltr' | 'rtl' }[] = [
   { code: 'en', name: 'English', dir: 'ltr' },
@@ -52,6 +60,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Request a Quote via WhatsApp",
     accessPlatform: "Access Travel Platform",
     accessPartnersPlatform: "ACCESS  OUR  PARTNERS  PLATFORM  FOR  REFERENCE",
+    cruiseOffers: "SEE THIS WEEK'S CRUISE OFFERS",
     secureService: "Secure and Confidential Service",
     back: "Back",
     excellence: "Excellence in Every Service",
@@ -69,6 +78,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Solicitar Presupuesto por WhatsApp",
     accessPlatform: "Acceder a la Plataforma de Viajes",
     accessPartnersPlatform: "ACCEDER A LA PLATAFORMA DE NUESTROS SOCIOS PARA REFERENCIA",
+    cruiseOffers: "VER LAS OFERTAS DE CRUCEROS DE LA SEMANA",
     secureService: "Servicio Seguro y Confidencial",
     back: "Volver",
     excellence: "Excelencia en cada servicio",
@@ -86,6 +96,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Solicitar Orçamento via WhatsApp",
     accessPlatform: "Acessar Plataforma de Viagens",
     accessPartnersPlatform: "ACESSAR A PLATAFORMA DE NOSSOS PARCEIROS PARA REFERÊNCIA",
+    cruiseOffers: "VER AS OFERTAS DE CRUZEIROS DA SEMANA",
     secureService: "Serviço Seguro e Confidencial",
     back: "Voltar",
     excellence: "Excelência em cada serviço",
@@ -103,6 +114,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "通过 WhatsApp 请求报价",
     accessPlatform: "访问旅游平台",
     accessPartnersPlatform: "访问我们的合作伙伴平台以供参考",
+    cruiseOffers: "查看本周游轮优惠",
     secureService: "安全保密的服务",
     back: "返回",
     excellence: "卓越的服务",
@@ -120,6 +132,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "בקש הצעת מחיר בוואטסאפ",
     accessPlatform: "גישה לפלטפורמת נסיעות",
     accessPartnersPlatform: "גישה לפלטפורמת השותפים שלנו לעיון",
+    cruiseOffers: "צפו במבצעי ההפלגות של השבוע",
     secureService: "שירות מאובטח וחסוי",
     back: "חזור",
     excellence: "מצוינות בכל שירות",
@@ -137,6 +150,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "طلب عرض سعر عبر واتساب",
     accessPlatform: "الوصول إلى منصة السفر",
     accessPartnersPlatform: "الوصول إلى منصة شركائنا للمرجع",
+    cruiseOffers: "شاهد عروض الرحلات البحرية لهذا الأسبوع",
     secureService: "خدمة آمنة וسرية",
     back: "رجوع",
     excellence: "التميز في كل خدمة",
@@ -154,6 +168,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Запросить расчет в WhatsApp",
     accessPlatform: "Доступ к платформе",
     accessPartnersPlatform: "ДОСТУП К ПЛАТФОРМЕ НАШИХ ПАРТНЕРОВ ДЛЯ СПРАВКИ",
+    cruiseOffers: "СМОТРЕТЬ ПРЕДЛОЖЕНИЯ КРУИЗОВ НЕДЕЛИ",
     secureService: "Безопасный и конфиденциальный сервис",
     back: "Назад",
     excellence: "Превосходство в каждой услуге",
@@ -171,6 +186,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Solicită o ofertă prin WhatsApp",
     accessPlatform: "Accesează platforma",
     accessPartnersPlatform: "ACCESEAZĂ PLATFORMA PARTENERILOR NOȘTRI PENTRU REFERINȚĂ",
+    cruiseOffers: "VEZI OFERTELE DE CROAZIERE ALE SĂPTĂMÂNII",
     secureService: "Serviciu sigur și confidențial",
     back: "Înapoi",
     excellence: "Excelență în fiecare serviciu",
@@ -188,6 +204,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Offerte aanvragen via WhatsApp",
     accessPlatform: "Toegang tot platform",
     accessPartnersPlatform: "TOEGANG TOT HET PLATFORM VAN ONZE PARTNERS TER REFERENTIE",
+    cruiseOffers: "BEKIJK DE CRUISEAANBIEDINGEN VAN DEZE WEEK",
     secureService: "Veilige en vertrouwelijke service",
     back: "Terug",
     excellence: "Uitmuntendheid in elke service",
@@ -205,6 +222,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Be om tilbud via WhatsApp",
     accessPlatform: "Tilgang til plattform",
     accessPartnersPlatform: "TILGANG TIL VÅRE PARTNERES PLATTFORM FOR REFERANSE",
+    cruiseOffers: "SE UKENS CRUISETILBUD",
     secureService: "Sikker og konfidensiell tjeneste",
     back: "Tilbake",
     excellence: "Excellence i hver tjeneste",
@@ -222,6 +240,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "WhatsApp के माध्यम से कोट का अनुरोध करें",
     accessPlatform: "प्लेटफॉर्म तक पहुंचें",
     accessPartnersPlatform: "संदर्भ के लिए हमारे भागीदारों के प्लेटफॉर्म तक पहुंचें",
+    cruiseOffers: "इस सप्ताह के क्रूज़ ऑफ़र देखें",
     secureService: "सुरक्षित और गोपनीय सेवा",
     back: "पीछे",
     excellence: "हर सेवा में उत्कृष्टता",
@@ -239,6 +258,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "WhatsAppで見積もりを依頼する",
     accessPlatform: "プラットフォームにアクセス",
     accessPartnersPlatform: "参照用にパートナーのプラットフォームにアクセス",
+    cruiseOffers: "今週のクルーズ特価を見る",
     secureService: "安全で機密性の高いサービス",
     back: "戻る",
     excellence: "すべてのサービスにおける卓越性",
@@ -256,6 +276,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Demander un devis via WhatsApp",
     accessPlatform: "Accéder à la plateforme",
     accessPartnersPlatform: "ACCÉDER À LA PLATEFORME DE NOS PARTENAIRES POUR RÉFÉRENCE",
+    cruiseOffers: "VOIR LES OFFRES DE CROISIÈRES DE LA SEMAINE",
     secureService: "Service sécurisé et confidentiel",
     back: "Retour",
     excellence: "Excellence dans chaque service",
@@ -273,6 +294,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Richiedi un preventivo via WhatsApp",
     accessPlatform: "Accedi alla piattaforma",
     accessPartnersPlatform: "ACCEDI ALLA PIATTAFORMA DEI NOSTRI PARTNER PER RIFERIMENTO",
+    cruiseOffers: "VEDI LE OFFERTE DI CROCIERE DELLA SETTIMANA",
     secureService: "Servizio sicuro e riservato",
     back: "Indietro",
     excellence: "Eccellenza in ogni servizio",
@@ -290,6 +312,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Angebot per WhatsApp anfordern",
     accessPlatform: "Plattform aufrufen",
     accessPartnersPlatform: "ZUGRIFF AUF DIE PLATTFORM UNSERER PARTNER ZUR REFERENZ",
+    cruiseOffers: "DIE KREUZFAHRT-ANGEBOTE DER WOCHE ANSEHEN",
     secureService: "Sicherer und vertraulicher Service",
     back: "Zurück",
     excellence: "Exzellenz in jedem Service",
@@ -307,6 +330,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "WhatsApp으로 견적 요청",
     accessPlatform: "플랫폼 접속",
     accessPartnersPlatform: "참고용 파트너 플랫폼 접속",
+    cruiseOffers: "이번 주 크루즈 특가 보기",
     secureService: "안전하고 기밀이 유지되는 서비스",
     back: "뒤로",
     excellence: "모든 서비스에서의 탁월함",
@@ -324,6 +348,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Pyydä tarjous WhatsAppilla",
     accessPlatform: "Pääsy alustalle",
     accessPartnersPlatform: "PÄÄSY KUMPPANEIDEMME ALUSTALLE VIITTEEKSI",
+    cruiseOffers: "KATSO VIIKON RISTEILYTARJOUKSET",
     secureService: "Turvallinen ja luottamuksellinen palvelu",
     back: "Takaisin",
     excellence: "Erinomaisuus jokaisessa palvelussa",
@@ -341,6 +366,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Ζητήστε προσφορά μέσω WhatsApp",
     accessPlatform: "Πρόσβαση στην πλατφόρμα",
     accessPartnersPlatform: "ΠΡΟΣΒΑΣΗ ΣΤΗΝ ΠΛΑΤΦΟΡΜΑ ΤΩΝ ΣΥΝΕΡΓΑΤΩΝ ΜΑΣ ΓΙΑ ΑΝΑΦΟΡΑ",
+    cruiseOffers: "ΔΕΙΤΕ ΤΙΣ ΠΡΟΣΦΟΡΕΣ ΚΡΟΥΑΖΙΕΡΩΝ ΤΗΣ ΕΒΔΟΜΑΔΑΣ",
     secureService: "Ασφαλής και εμπιστευτική υπηρεσία",
     back: "Πίσω",
     excellence: "Αριστεία σε κάθε υπηρεσία",
@@ -378,6 +404,31 @@ export const SERVICES: Service[] = [
       ko: { title: '번역', description: '15개 이상의 언어로 제공되는 공인 번역 서비스. 브라질에서 인정받는 고도로 숙련된 번역가.' },
       fi: { title: 'KÄÄNNÖKSET', description: 'Auktorisoidut käännöspalvelut yli 15 kielellä. Brasiliassa tunnustetut pätevät kääntäjät.' },
       el: { title: 'ΜΕΤΑΦΡΑΣΕΙΣ', description: 'Πιστοποιημένες μεταφραστικές υπηρεσίες σε 15+ γλώσσες. Υψηλά καταρτισμένοι μεταφραστές αναγνωρισμένοι στη Βραζιλία.' }
+    }
+  },
+  {
+    id: 'migrant-support',
+    icon: HeartHandshake,
+    image: 'migrant_support.jpg',
+    translations: {
+      en: { title: 'TECHNICAL SUPPORT FOR MIGRANTS', description: 'Technical support for migrants: guidance on documents, certified translations, forms and procedures to live, study and work abroad.' },
+      es: { title: 'APOYO TÉCNICO PARA MIGRANTES', description: 'Apoyo técnico para migrantes: orientación sobre documentos, traducciones certificadas, formularios y trámites para vivir, estudiar y trabajar en el exterior.' },
+      pt: { title: 'APOIO TÉCNICO PARA MIGRANTES', description: 'Apoio técnico para migrantes: orientação sobre documentos, traduções juramentadas, formulários e procedimentos para viver, estudar e trabalhar no exterior.' },
+      zh: { title: '移民技术支持', description: '为移民提供技术支持：文件、认证翻译、表格以及在国外生活、学习和工作的手续指导。' },
+      he: { title: 'תמיכה טכנית למהגרים', description: 'תמיכה טכנית למהגרים: ליווי במסמכים, תרגומים מאושרים, טפסים והליכים למגורים, לימודים ועבודה בחו"ל.' },
+      ar: { title: 'الدعم الفني للمهاجرين', description: 'الدعم الفني للمهاجرين: إرشادات بشأن المستندات والترجمات المعتمدة والنماذج والإجراءات للعيش والدراسة والعمل في الخارج.' },
+      ru: { title: 'ТЕХНИЧЕСКАЯ ПОДДЕРЖКА МИГРАНТОВ', description: 'Техническая поддержка мигрантов: помощь с документами, заверенными переводами, формами и процедурами для жизни, учебы и работы за рубежом.' },
+      ro: { title: 'ASISTENȚĂ TEHNICĂ PENTRU MIGRANȚI', description: 'Asistență tehnică pentru migranți: îndrumare privind documentele, traducerile autorizate, formularele și procedurile pentru a trăi, studia și lucra în străinătate.' },
+      nl: { title: 'TECHNISCHE ONDERSTEUNING VOOR MIGRANTEN', description: 'Technische ondersteuning voor migranten: begeleiding bij documenten, beëdigde vertalingen, formulieren en procedures om in het buitenland te wonen, studeren en werken.' },
+      no: { title: 'TEKNISK STØTTE FOR MIGRANTER', description: 'Teknisk støtte for migranter: veiledning om dokumenter, autoriserte oversettelser, skjemaer og prosedyrer for å bo, studere og arbeide i utlandet.' },
+      hi: { title: 'प्रवासियों के लिए तकनीकी सहायता', description: 'प्रवासियों के लिए तकनीकी सहायता: विदेश में रहने, पढ़ने और काम करने के लिए दस्तावेज़, प्रमाणित अनुवाद, फॉर्म और प्रक्रियाओं पर मार्गदर्शन।' },
+      ja: { title: '移住者向けテクニカルサポート', description: '移住者向けテクニカルサポート：海外で暮らし、学び、働くための書類、認証翻訳、申請書類や手続きをご案内します。' },
+      fr: { title: 'ASSISTANCE TECHNIQUE AUX MIGRANTS', description: 'Assistance technique aux migrants : accompagnement pour les documents, traductions assermentées, formulaires et démarches pour vivre, étudier et travailler à l\'étranger.' },
+      it: { title: 'SUPPORTO TECNICO PER I MIGRANTI', description: 'Supporto tecnico per i migranti: assistenza su documenti, traduzioni giurate, moduli e procedure per vivere, studiare e lavorare all\'estero.' },
+      de: { title: 'TECHNISCHE UNTERSTÜTZUNG FÜR MIGRANTEN', description: 'Technische Unterstützung für Migranten: Beratung zu Dokumenten, beglaubigten Übersetzungen, Formularen und Verfahren, um im Ausland zu leben, zu studieren und zu arbeiten.' },
+      ko: { title: '이주민 기술 지원', description: '이주민을 위한 기술 지원: 해외에서 거주·학업·취업하기 위한 서류, 공증 번역, 양식 및 절차를 안내합니다.' },
+      fi: { title: 'TEKNINEN TUKI MAAHANMUUTTAJILLE', description: 'Tekninen tuki maahanmuuttajille: opastusta asiakirjoihin, virallisiin käännöksiin, lomakkeisiin ja menettelyihin ulkomailla asumista, opiskelua ja työskentelyä varten.' },
+      el: { title: 'ΤΕΧΝΙΚΗ ΥΠΟΣΤΗΡΙΞΗ ΓΙΑ ΜΕΤΑΝΑΣΤΕΣ', description: 'Τεχνική υποστήριξη για μετανάστες: καθοδήγηση για έγγραφα, επίσημες μεταφράσεις, έντυπα και διαδικασίες για να ζήσετε, να σπουδάσετε και να εργαστείτε στο εξωτερικό.' }
     }
   },
   {
@@ -462,6 +513,7 @@ export const SERVICES: Service[] = [
     id: 'cruises',
     icon: Ship,
     image: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=800',
+    externalPlatformLink: CRUISE_OFFERS_URL,
     slides: [
       'https://images.unsplash.com/photo-1568045374121-f59eb61c7c8d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       'https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1200',

@@ -177,6 +177,15 @@ const ServiceCard = ({ service, lang, onClick }: { service: Service, lang: Langu
   );
 };
 
+// Rótulo do botão de link externo por serviço (chave dentro de UI_STRINGS).
+// Serviços fora desta lista usam o rótulo padrão "accessPlatform".
+const EXTERNAL_LINK_LABELS: Record<string, string> = {
+  reviews: 'rateUs',
+  google_rates: 'readReviews',
+  partners: 'accessPartnersPlatform',
+  cruises: 'cruiseOffers',
+};
+
 const ServiceDetail = ({ service, lang, onBack, onLangChange }: { service: Service, lang: Language, onBack: () => void, onLangChange: (lang: Language) => void, key?: string }) => {
   const content = service.translations[lang];
   const t = UI_STRINGS[lang];
@@ -371,7 +380,7 @@ const ServiceDetail = ({ service, lang, onBack, onLangChange }: { service: Servi
               className="gold-button flex items-center justify-center gap-4 text-lg py-4"
             >
               <ExternalLink className="w-7 h-7" />
-              {service.id === 'reviews' ? t.rateUs : (service.id === 'google_rates' ? t.readReviews : (service.id === 'partners' ? t.accessPartnersPlatform : t.accessPlatform))}
+              {t[EXTERNAL_LINK_LABELS[service.id] ?? 'accessPlatform']}
             </a>
           )}
         </div>
