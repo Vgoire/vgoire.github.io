@@ -463,7 +463,7 @@ export const SERVICES: Service[] = [
     icon: Ship,
     image: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=800',
     slides: [
-      'https://images.unsplash.com/pt-br/fotografias/navio-de-cruzeiro-branco-durante-o-dia-UdxJSRD6UNM 
+      'https://images.unsplash.com/photo-1568045374121-f59eb61c7c8d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       'https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1500021804447-2ca2eaaaabeb?auto=format&fit=crop&q=80&w=1200'

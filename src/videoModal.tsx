@@ -1,8 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// Nem todo vídeo tem maxresdefault (só os enviados em 1280x720 ou mais).
+// Quando não existe, o YouTube responde 404 servindo um JPEG cinza de 120x90:
+// o navegador exibe esse placeholder em vez de disparar onError, e é ele que
+// aparece esticado como se a imagem não tivesse carregado. Por isso a queda
+// para a próxima resolução é decidida pelo tamanho real da imagem carregada.
+const THUMBNAIL_QUALITIES = ['maxresdefault', 'sddefault', 'hqdefault', 'mqdefault'];
+const PLACEHOLDER_MAX_WIDTH = 120;
 
 const VideoModal = ({ videoUrl, className = "" }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [thumbnailLevel, setThumbnailLevel] = useState(0);
 
   // Função para extrair o ID do vídeo do YouTube de URLs variadas
   const getYoutubeId = (url) => {
@@ -12,10 +21,17 @@ const VideoModal = ({ videoUrl, className = "" }) => {
   };
 
   const videoId = getYoutubeId(videoUrl);
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+  // Volta para a melhor qualidade quando o vídeo muda
+  useEffect(() => setThumbnailLevel(0), [videoId]);
+
+  const useNextThumbnail = () =>
+    setThumbnailLevel((level) => Math.min(level + 1, THUMBNAIL_QUALITIES.length - 1));
 
   if (!videoId) return <p className="text-red-500">URL de vídeo inválida</p>;
+
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/${THUMBNAIL_QUALITIES[thumbnailLevel]}.jpg`;
 
   return (
     <>
@@ -30,7 +46,11 @@ const VideoModal = ({ videoUrl, className = "" }) => {
         <img 
           src={thumbnailUrl} 
           alt="Video thumbnail" 
-          className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full aspect-video object-contain bg-black transition-transform duration-500 group-hover:scale-105"
+          onLoad={(e) => {
+            if (e.currentTarget.naturalWidth <= PLACEHOLDER_MAX_WIDTH) useNextThumbnail();
+          }}
+          onError={useNextThumbnail}
         />
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-all">
           <div className="w-16 h-16 bg-vgoire-gold rounded-full flex items-center justify-center text-white shadow-xl transform group-hover:scale-110 transition-transform">
