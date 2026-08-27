@@ -39,6 +39,10 @@ export const TRAVEL_GALLERY_IMAGES: string[] = [
   'viagens/curitiba.jpeg',
   'viagens/fortaleza.jpeg',
   'viagens/miami.jpeg',
+  'viagens/Porto Velho - João Pessoa.jpg',
+  'viagens/Porto Velho - Manaus.jpg',
+  'viagens/Porto Velho - Rio de Janeiro.jpg',
+  'viagens/São Paulo - New York.jpg'
 ];
 
 // Galeria cruzeiros
