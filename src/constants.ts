@@ -11,11 +11,11 @@ export interface Service {
   videos?: string[];
   partners?: { name: string; image: string }[];
   faqItems?: { question: string; answer: string }[];
-  translations: Record<Language, {
+  translations: Partial<Record<Language, {
     title: string;
     description: string;
     faqItems?: { question: string; answer: string }[];
-  }>;
+  }>>;
 }
 
 export const WHATSAPP_NUMBER = "5569981232697";
@@ -25,12 +25,29 @@ export const INSTAGRAM_URL = "https://www.instagram.com/vladimirgoire/";
 export const YOTUBE_URL_TRIPS = "https://www.youtube.com/watch?v=Ls-elZIb0f8";
 
 // ---------------------------------------------------------------------------
-// OFERTAS DE CRUZEIROS DA SEMANA
-// Para publicar a oferta nova, troque SOMENTE o endereço entre aspas abaixo e
-// rode "npm run deploy". Nenhum outro arquivo precisa ser alterado.
-// Enquanto não houver oferta da semana, deixe a plataforma de viagens.
+// OFERTAS DE CRUZEIROS DO MÊS
+// Linktree para atualizar todo mês lá
 // ---------------------------------------------------------------------------
-export const CRUISE_OFFERS_URL = TRAVEL_PLATFORM_URL;
+export const CRUISE_OFFERS_URL = "https://linktr.ee/erickweil";
+
+// ---------------------------------------------------------------------------
+// GALERIA DE IMAGENS DA TELA DE VIAGENS
+// Para trocar as fotos do carrossel basta editar esta lista: os arquivos ficam
+// em public/viagens e o caminho é relativo (sem barra no início).
+// ---------------------------------------------------------------------------
+export const TRAVEL_GALLERY_IMAGES: string[] = [
+  'viagens/curitiba.jpeg',
+  'viagens/fortaleza.jpeg',
+  'viagens/miami.jpeg',
+];
+
+// Galeria cruzeiros
+export const CRUISE_GALLERY_IMAGES: string[] = [
+  'https://images.unsplash.com/photo-1568045374121-f59eb61c7c8d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1200',
+  'https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&q=80&w=1200',
+  'https://images.unsplash.com/photo-1500021804447-2ca2eaaaabeb?auto=format&fit=crop&q=80&w=1200'
+]
 
 export const LANGUAGES: { code: Language; name: string; dir: 'ltr' | 'rtl' }[] = [
   { code: 'en', name: 'English', dir: 'ltr' },
@@ -60,7 +77,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Request a Quote via WhatsApp",
     accessPlatform: "Access Travel Platform",
     accessPartnersPlatform: "ACCESS  OUR  PARTNERS  PLATFORM  FOR  REFERENCE",
-    cruiseOffers: "SEE THIS WEEK'S CRUISE OFFERS",
+    cruiseOffers: "SEE THIS MONTH'S CRUISE OFFERS",
     secureService: "Secure and Confidential Service",
     back: "Back",
     excellence: "Excellence in Every Service",
@@ -68,6 +85,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "READ MY CLIENTS RATINGS ON GOOGLE",
     reviews: "CLIENT REVIEWS",
     partners: "OUR PARTNERS",
+    gallery: "GALLERY",
     questionsResponses: "QUESTIONS and RESPONSES",
     privacyPolicy: "Privacy Policy",
     privacyContent: "VGOIRE is committed to protecting your privacy. This application does not collect personal data directly. Any information shared via WhatsApp or external links is handled by those respective platforms according to their own privacy policies. We do not share your information with third parties."
@@ -78,7 +96,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Solicitar Presupuesto por WhatsApp",
     accessPlatform: "Acceder a la Plataforma de Viajes",
     accessPartnersPlatform: "ACCEDER A LA PLATAFORMA DE NUESTROS SOCIOS PARA REFERENCIA",
-    cruiseOffers: "VER LAS OFERTAS DE CRUCEROS DE LA SEMANA",
+    cruiseOffers: "VER LAS OFERTAS DE CRUCEROS DEL MES",
     secureService: "Servicio Seguro y Confidencial",
     back: "Volver",
     excellence: "Excelencia en cada servicio",
@@ -86,6 +104,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "LEER LAS CALIFICACIONES DE MIS CLIENTES EN GOOGLE",
     reviews: "OPINIONES DE CLIENTES",
     partners: "NUESTROS SOCIOS",
+    gallery: "GALERÍA",
     questionsResponses: "PREGUNTAS y RESPUESTAS",
     privacyPolicy: "Política de Privacidad",
     privacyContent: "VGOIRE se compromete a proteger su privacidad. Esta aplicación no recopila datos personales directamente. Cualquier información compartida a través de WhatsApp o enlaces externos es manejada por esas plataformas respectivas de acuerdo con sus propias políticas de privacidad. No compartimos su información con terceros."
@@ -96,7 +115,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Solicitar Orçamento via WhatsApp",
     accessPlatform: "Acessar Plataforma de Viagens",
     accessPartnersPlatform: "ACESSAR A PLATAFORMA DE NOSSOS PARCEIROS PARA REFERÊNCIA",
-    cruiseOffers: "VER AS OFERTAS DE CRUZEIROS DA SEMANA",
+    cruiseOffers: "VER AS OFERTAS DE CRUZEIROS DO MÊS",
     secureService: "Serviço Seguro e Confidencial",
     back: "Voltar",
     excellence: "Excelência em cada serviço",
@@ -104,6 +123,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "LER AS AVALIAÇÕES DOS MEUS CLIENTES NO GOOGLE",
     reviews: "AVALIAÇÕES DE CLIENTES",
     partners: "NOSSOS PARCEIROS",
+    gallery: "GALERIA",
     questionsResponses: "PERGUNTAS e RESPOSTAS",
     privacyPolicy: "Política de Privacidade",
     privacyContent: "A VGOIRE está comprometida em proteger sua privacidade. Este aplicativo não coleta dados pessoais diretamente. Qualquer informação compartilhada via WhatsApp ou links externos é tratada por essas respectivas plataformas de acordo com suas próprias políticas de privacidade. Não compartilhamos suas informações com terceiros."
@@ -114,7 +134,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "通过 WhatsApp 请求报价",
     accessPlatform: "访问旅游平台",
     accessPartnersPlatform: "访问我们的合作伙伴平台以供参考",
-    cruiseOffers: "查看本周游轮优惠",
+    cruiseOffers: "查看本月游轮优惠",
     secureService: "安全保密的服务",
     back: "返回",
     excellence: "卓越的服务",
@@ -122,6 +142,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "在 GOOGLE 上阅读我的客户评分",
     reviews: "客户评价",
     partners: "我们的合作伙伴",
+    gallery: "图库",
     questionsResponses: "问题与解答",
     privacyPolicy: "隐私政策",
     privacyContent: "VGOIRE 致力于保护您的隐私。本应用不直接收集个人数据。通过 WhatsApp 或外部链接共享的任何信息均由这些相应平台根据其自身的隐私政策处理。我们不会与第三方共享您的信息。"
@@ -132,7 +153,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "בקש הצעת מחיר בוואטסאפ",
     accessPlatform: "גישה לפלטפורמת נסיעות",
     accessPartnersPlatform: "גישה לפלטפורמת השותפים שלנו לעיון",
-    cruiseOffers: "צפו במבצעי ההפלגות של השבוע",
+    cruiseOffers: "צפו במבצעי ההפלגות של החודש",
     secureService: "שירות מאובטח וחסוי",
     back: "חזור",
     excellence: "מצוינות בכל שירות",
@@ -140,6 +161,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "קרא את דירוגי הלקוחות שלי בגוגל",
     reviews: "ביקורות לקוחות",
     partners: "השותפים שלנו",
+    gallery: "גלריה",
     questionsResponses: "שאלות ותשובות",
     privacyPolicy: "מדיניות פרטיות",
     privacyContent: "VGOIRE מחויבת להגן על הפרטיות שלך. אפליקציה זו אינה אוספת נתונים אישיים באופן ישיר. כל מידע המשותף באמצעות WhatsApp או קישורים חיצוניים מטופל על ידי הפלטפורמות המתאימות בהתאם למדיניות הפרטיות שלהן. איננו משתפים את המידע שלך עם צדדים שלישיים."
@@ -150,7 +172,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "طلب عرض سعر عبر واتساب",
     accessPlatform: "الوصول إلى منصة السفر",
     accessPartnersPlatform: "الوصول إلى منصة شركائنا للمرجع",
-    cruiseOffers: "شاهد عروض الرحلات البحرية لهذا الأسبوع",
+    cruiseOffers: "شاهد عروض الرحلات البحرية لهذا الشهر",
     secureService: "خدمة آمنة וسرية",
     back: "رجوع",
     excellence: "التميز في كل خدمة",
@@ -158,6 +180,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "اقرأ تقييمات عملائي على GOOGLE",
     reviews: "آراء العملاء",
     partners: "شركاؤنا",
+    gallery: "معرض الصور",
     questionsResponses: "الأسئلة والأجوبة",
     privacyPolicy: "سياسة الخصوصية",
     privacyContent: "تلتزم VGOIRE بحماية خصوصيتك. لا يجمع هذا التطبيق البيانات الشخصية مباشرة. يتم التعامل مع أي معلومات يتم مشاركتها عبر WhatsApp أو الروابط الخارجية من قبل تلك المنصات المعنية وفقًا لسياسات الخصوصية الخاصة بها. نحن لا نشارك معلوماتك مع أطراف ثالثة."
@@ -168,7 +191,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Запросить расчет в WhatsApp",
     accessPlatform: "Доступ к платформе",
     accessPartnersPlatform: "ДОСТУП К ПЛАТФОРМЕ НАШИХ ПАРТНЕРОВ ДЛЯ СПРАВКИ",
-    cruiseOffers: "СМОТРЕТЬ ПРЕДЛОЖЕНИЯ КРУИЗОВ НЕДЕЛИ",
+    cruiseOffers: "СМОТРЕТЬ ПРЕДЛОЖЕНИЯ КРУИЗОВ МЕСЯЦА",
     secureService: "Безопасный и конфиденциальный сервис",
     back: "Назад",
     excellence: "Превосходство в каждой услуге",
@@ -176,6 +199,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "ПРОЧИТАТЬ РЕЙТИНГИ МОИХ КЛИЕНТОВ В GOOGLE",
     reviews: "ОТЗЫВЫ КЛИЕНТОВ",
     partners: "НАШИ ПАРТНЕРЫ",
+    gallery: "ГАЛЕРЕЯ",
     questionsResponses: "ВОПРОСЫ и ОТВЕТЫ",
     privacyPolicy: "Политика конфиденциальности",
     privacyContent: "VGOIRE стремится защищать вашу конфиденциальность."
@@ -186,7 +210,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Solicită o ofertă prin WhatsApp",
     accessPlatform: "Accesează platforma",
     accessPartnersPlatform: "ACCESEAZĂ PLATFORMA PARTENERILOR NOȘTRI PENTRU REFERINȚĂ",
-    cruiseOffers: "VEZI OFERTELE DE CROAZIERE ALE SĂPTĂMÂNII",
+    cruiseOffers: "VEZI OFERTELE DE CROAZIERE ALE LUNII",
     secureService: "Serviciu sigur și confidențial",
     back: "Înapoi",
     excellence: "Excelență în fiecare serviciu",
@@ -194,6 +218,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "CITIȚI EVALUĂRILE CLIENȚILOR MEI PE GOOGLE",
     reviews: "RECENZII CLIENȚI",
     partners: "PARTENERII NOȘTRI",
+    gallery: "GALERIE",
     questionsResponses: "ÎNTREBĂRI și RĂSPUNSURI",
     privacyPolicy: "Politica de confidențialitate",
     privacyContent: "VGOIRE se angajează să vă protejeze confidențialitatea."
@@ -204,7 +229,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Offerte aanvragen via WhatsApp",
     accessPlatform: "Toegang tot platform",
     accessPartnersPlatform: "TOEGANG TOT HET PLATFORM VAN ONZE PARTNERS TER REFERENTIE",
-    cruiseOffers: "BEKIJK DE CRUISEAANBIEDINGEN VAN DEZE WEEK",
+    cruiseOffers: "BEKIJK DE CRUISEAANBIEDINGEN VAN DEZE MAAND",
     secureService: "Veilige en vertrouwelijke service",
     back: "Terug",
     excellence: "Uitmuntendheid in elke service",
@@ -212,6 +237,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "LEES MIJN KLANTBEOORDELINGEN OP GOOGLE",
     reviews: "KLANTBEOORDELINGEN",
     partners: "ONZE PARTNERS",
+    gallery: "GALERIJ",
     questionsResponses: "VRAGEN en ANTWOORDEN",
     privacyPolicy: "Privacybeleid",
     privacyContent: "VGOIRE zet zich in voor het beschermen van uw privacy."
@@ -222,7 +248,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Be om tilbud via WhatsApp",
     accessPlatform: "Tilgang til plattform",
     accessPartnersPlatform: "TILGANG TIL VÅRE PARTNERES PLATTFORM FOR REFERANSE",
-    cruiseOffers: "SE UKENS CRUISETILBUD",
+    cruiseOffers: "SE MÅNEDENS CRUISETILBUD",
     secureService: "Sikker og konfidensiell tjeneste",
     back: "Tilbake",
     excellence: "Excellence i hver tjeneste",
@@ -230,6 +256,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "LES MINE KUNDEVURDERINGER PÅ GOOGLE",
     reviews: "KUNDEANMELDELSER",
     partners: "VÅRE PARTNERE",
+    gallery: "GALLERI",
     questionsResponses: "SPØRSMÅL og SVAR",
     privacyPolicy: "Personvernregler",
     privacyContent: "VGOIRE er forpliktet til å beskytte ditt personvern."
@@ -240,7 +267,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "WhatsApp के माध्यम से कोट का अनुरोध करें",
     accessPlatform: "प्लेटफॉर्म तक पहुंचें",
     accessPartnersPlatform: "संदर्भ के लिए हमारे भागीदारों के प्लेटफॉर्म तक पहुंचें",
-    cruiseOffers: "इस सप्ताह के क्रूज़ ऑफ़र देखें",
+    cruiseOffers: "इस महीने के क्रूज़ ऑफ़र देखें",
     secureService: "सुरक्षित और गोपनीय सेवा",
     back: "पीछे",
     excellence: "हर सेवा में उत्कृष्टता",
@@ -248,6 +275,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "GOOGLE पर मेरे ग्राहकों की रेटिंग पढ़ें",
     reviews: "ग्राहक समीक्षा",
     partners: "हमारे भागीदार",
+    gallery: "गैलरी",
     questionsResponses: "प्रश्न और उत्तर",
     privacyPolicy: "गोपनीयता नीति",
     privacyContent: "VGOIRE आपकी गोपनीयता की रक्षा के लिए प्रतिबद्ध है।"
@@ -258,7 +286,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "WhatsAppで見積もりを依頼する",
     accessPlatform: "プラットフォームにアクセス",
     accessPartnersPlatform: "参照用にパートナーのプラットフォームにアクセス",
-    cruiseOffers: "今週のクルーズ特価を見る",
+    cruiseOffers: "今月のクルーズ特価を見る",
     secureService: "安全で機密性の高いサービス",
     back: "戻る",
     excellence: "すべてのサービスにおける卓越性",
@@ -266,6 +294,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "GOOGLEで私の顧客の評価を読む",
     reviews: "お客様の声",
     partners: "パートナー",
+    gallery: "ギャラリー",
     questionsResponses: "質問と回答",
     privacyPolicy: "プライバシーポリシー",
     privacyContent: "VGOIREはお客様のプライバシー保護に努めています。"
@@ -276,7 +305,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Demander un devis via WhatsApp",
     accessPlatform: "Accéder à la plateforme",
     accessPartnersPlatform: "ACCÉDER À LA PLATEFORME DE NOS PARTENAIRES POUR RÉFÉRENCE",
-    cruiseOffers: "VOIR LES OFFRES DE CROISIÈRES DE LA SEMAINE",
+    cruiseOffers: "VOIR LES OFFRES DE CROISIÈRES DU MOIS",
     secureService: "Service sécurisé et confidentiel",
     back: "Retour",
     excellence: "Excellence dans chaque service",
@@ -284,6 +313,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "LIRE LES ÉVALUATIONS DE MES CLIENTS SUR GOOGLE",
     reviews: "AVIS CLIENTS",
     partners: "NOS PARTENAIRES",
+    gallery: "GALERIE",
     questionsResponses: "QUESTIONS et RÉPONSES",
     privacyPolicy: "Politique de confidentialité",
     privacyContent: "VGOIRE s'engage à protéger votre vie privée."
@@ -294,7 +324,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Richiedi un preventivo via WhatsApp",
     accessPlatform: "Accedi alla piattaforma",
     accessPartnersPlatform: "ACCEDI ALLA PIATTAFORMA DEI NOSTRI PARTNER PER RIFERIMENTO",
-    cruiseOffers: "VEDI LE OFFERTE DI CROCIERE DELLA SETTIMANA",
+    cruiseOffers: "VEDI LE OFFERTE DI CROCIERE DEL MESE",
     secureService: "Servizio sicuro e riservato",
     back: "Indietro",
     excellence: "Eccellenza in ogni servizio",
@@ -302,6 +332,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "LEGGI LE VALUTAZIONI DEI MIEI CLIENTI SU GOOGLE",
     reviews: "RECENSIONI CLIENTI",
     partners: "I NOSTRI PARTNER",
+    gallery: "GALLERIA",
     questionsResponses: "DOMANDE e RISPOSTE",
     privacyPolicy: "Informativa sulla privacy",
     privacyContent: "VGOIRE si impegna a proteggere la tua privacy."
@@ -312,7 +343,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Angebot per WhatsApp anfordern",
     accessPlatform: "Plattform aufrufen",
     accessPartnersPlatform: "ZUGRIFF AUF DIE PLATTFORM UNSERER PARTNER ZUR REFERENZ",
-    cruiseOffers: "DIE KREUZFAHRT-ANGEBOTE DER WOCHE ANSEHEN",
+    cruiseOffers: "DIE KREUZFAHRT-ANGEBOTE DES MONATS ANSEHEN",
     secureService: "Sicherer und vertraulicher Service",
     back: "Zurück",
     excellence: "Exzellenz in jedem Service",
@@ -320,6 +351,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "LESEN SIE MEINE KUNDENBEWERTUNGEN AUF GOOGLE",
     reviews: "KUNDENBEWERTUNGEN",
     partners: "UNSERE PARTNER",
+    gallery: "GALERIE",
     questionsResponses: "FRAGEN und ANTWORTEN",
     privacyPolicy: "Datenschutzerklärung",
     privacyContent: "VGOIRE setzt sich für den Schutz Ihrer Privatsphäre ein."
@@ -330,7 +362,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "WhatsApp으로 견적 요청",
     accessPlatform: "플랫폼 접속",
     accessPartnersPlatform: "참고용 파트너 플랫폼 접속",
-    cruiseOffers: "이번 주 크루즈 특가 보기",
+    cruiseOffers: "이번 달 크루즈 특가 보기",
     secureService: "안전하고 기밀이 유지되는 서비스",
     back: "뒤로",
     excellence: "모든 서비스에서의 탁월함",
@@ -338,6 +370,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "GOOGLE에서 내 고객 평점 읽기",
     reviews: "고객 리뷰",
     partners: "파트너",
+    gallery: "갤러리",
     questionsResponses: "질문 및 답변",
     privacyPolicy: "개인정보 처리방침",
     privacyContent: "VGOIRE는 귀하의 개인정보를 보호하기 위해 최선을 다하고 있습니다."
@@ -348,7 +381,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Pyydä tarjous WhatsAppilla",
     accessPlatform: "Pääsy alustalle",
     accessPartnersPlatform: "PÄÄSY KUMPPANEIDEMME ALUSTALLE VIITTEEKSI",
-    cruiseOffers: "KATSO VIIKON RISTEILYTARJOUKSET",
+    cruiseOffers: "KATSO KUUKAUDEN RISTEILYTARJOUKSET",
     secureService: "Turvallinen ja luottamuksellinen palvelu",
     back: "Takaisin",
     excellence: "Erinomaisuus jokaisessa palvelussa",
@@ -356,6 +389,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "LUE ASIAKKAIDENI ARVIOT GOOGLESTA",
     reviews: "ASIAKASARVOSTELUT",
     partners: "KUMPPANIMME",
+    gallery: "GALLERIA",
     questionsResponses: "KYSYMYKSET ja VASTAUKSET",
     privacyPolicy: "Tietosuojakäytäntö",
     privacyContent: "VGOIRE on sitoutunut suojaamaan yksityisyyttäsi."
@@ -366,7 +400,7 @@ export const UI_STRINGS: Record<Language, any> = {
     requestQuote: "Ζητήστε προσφορά μέσω WhatsApp",
     accessPlatform: "Πρόσβαση στην πλατφόρμα",
     accessPartnersPlatform: "ΠΡΟΣΒΑΣΗ ΣΤΗΝ ΠΛΑΤΦΟΡΜΑ ΤΩΝ ΣΥΝΕΡΓΑΤΩΝ ΜΑΣ ΓΙΑ ΑΝΑΦΟΡΑ",
-    cruiseOffers: "ΔΕΙΤΕ ΤΙΣ ΠΡΟΣΦΟΡΕΣ ΚΡΟΥΑΖΙΕΡΩΝ ΤΗΣ ΕΒΔΟΜΑΔΑΣ",
+    cruiseOffers: "ΔΕΙΤΕ ΤΙΣ ΠΡΟΣΦΟΡΕΣ ΚΡΟΥΑΖΙΕΡΩΝ ΤΟΥ ΜΗΝΑ",
     secureService: "Ασφαλής και εμπιστευτική υπηρεσία",
     back: "Πίσω",
     excellence: "Αριστεία σε κάθε υπηρεσία",
@@ -374,6 +408,7 @@ export const UI_STRINGS: Record<Language, any> = {
     readReviews: "ΔΙΑΒΑΣΤΕ ΤΙΣ ΑΞΙΟΛΟΓΗΣΕΙΣ ΤΩΝ ΠΕΛΑΤΩΝ ΜΟΥ ΣΤΟ GOOGLE",
     reviews: "ΚΡΙΤΙΚΕΣ ΠΕΛΑΤΩΝ",
     partners: "ΟΙ ΣΥΝΕΡΓΑΤΕΣ ΜΑΣ",
+    gallery: "ΓΚΑΛΕΡΙ",
     questionsResponses: "ΕΡΩΤΗΣΕΙΣ και ΑΠΑΝΤΗΣΕΙΣ",
     privacyPolicy: "Πολιτική απορρήτου",
     privacyContent: "Η VGOIRE δεσμεύεται να προστατεύει το απόρρητό σας."
@@ -411,24 +446,8 @@ export const SERVICES: Service[] = [
     icon: HeartHandshake,
     image: 'migrant_support.jpg',
     translations: {
-      en: { title: 'TECHNICAL SUPPORT FOR MIGRANTS', description: 'Technical support for migrants: guidance on documents, certified translations, forms and procedures to live, study and work abroad.' },
-      es: { title: 'APOYO TÉCNICO PARA MIGRANTES', description: 'Apoyo técnico para migrantes: orientación sobre documentos, traducciones certificadas, formularios y trámites para vivir, estudiar y trabajar en el exterior.' },
-      pt: { title: 'APOIO TÉCNICO PARA MIGRANTES', description: 'Apoio técnico para migrantes: orientação sobre documentos, traduções juramentadas, formulários e procedimentos para viver, estudar e trabalhar no exterior.' },
-      zh: { title: '移民技术支持', description: '为移民提供技术支持：文件、认证翻译、表格以及在国外生活、学习和工作的手续指导。' },
-      he: { title: 'תמיכה טכנית למהגרים', description: 'תמיכה טכנית למהגרים: ליווי במסמכים, תרגומים מאושרים, טפסים והליכים למגורים, לימודים ועבודה בחו"ל.' },
-      ar: { title: 'الدعم الفني للمهاجرين', description: 'الدعم الفني للمهاجرين: إرشادات بشأن المستندات والترجمات المعتمدة والنماذج والإجراءات للعيش والدراسة والعمل في الخارج.' },
-      ru: { title: 'ТЕХНИЧЕСКАЯ ПОДДЕРЖКА МИГРАНТОВ', description: 'Техническая поддержка мигрантов: помощь с документами, заверенными переводами, формами и процедурами для жизни, учебы и работы за рубежом.' },
-      ro: { title: 'ASISTENȚĂ TEHNICĂ PENTRU MIGRANȚI', description: 'Asistență tehnică pentru migranți: îndrumare privind documentele, traducerile autorizate, formularele și procedurile pentru a trăi, studia și lucra în străinătate.' },
-      nl: { title: 'TECHNISCHE ONDERSTEUNING VOOR MIGRANTEN', description: 'Technische ondersteuning voor migranten: begeleiding bij documenten, beëdigde vertalingen, formulieren en procedures om in het buitenland te wonen, studeren en werken.' },
-      no: { title: 'TEKNISK STØTTE FOR MIGRANTER', description: 'Teknisk støtte for migranter: veiledning om dokumenter, autoriserte oversettelser, skjemaer og prosedyrer for å bo, studere og arbeide i utlandet.' },
-      hi: { title: 'प्रवासियों के लिए तकनीकी सहायता', description: 'प्रवासियों के लिए तकनीकी सहायता: विदेश में रहने, पढ़ने और काम करने के लिए दस्तावेज़, प्रमाणित अनुवाद, फॉर्म और प्रक्रियाओं पर मार्गदर्शन।' },
-      ja: { title: '移住者向けテクニカルサポート', description: '移住者向けテクニカルサポート：海外で暮らし、学び、働くための書類、認証翻訳、申請書類や手続きをご案内します。' },
-      fr: { title: 'ASSISTANCE TECHNIQUE AUX MIGRANTS', description: 'Assistance technique aux migrants : accompagnement pour les documents, traductions assermentées, formulaires et démarches pour vivre, étudier et travailler à l\'étranger.' },
-      it: { title: 'SUPPORTO TECNICO PER I MIGRANTI', description: 'Supporto tecnico per i migranti: assistenza su documenti, traduzioni giurate, moduli e procedure per vivere, studiare e lavorare all\'estero.' },
-      de: { title: 'TECHNISCHE UNTERSTÜTZUNG FÜR MIGRANTEN', description: 'Technische Unterstützung für Migranten: Beratung zu Dokumenten, beglaubigten Übersetzungen, Formularen und Verfahren, um im Ausland zu leben, zu studieren und zu arbeiten.' },
-      ko: { title: '이주민 기술 지원', description: '이주민을 위한 기술 지원: 해외에서 거주·학업·취업하기 위한 서류, 공증 번역, 양식 및 절차를 안내합니다.' },
-      fi: { title: 'TEKNINEN TUKI MAAHANMUUTTAJILLE', description: 'Tekninen tuki maahanmuuttajille: opastusta asiakirjoihin, virallisiin käännöksiin, lomakkeisiin ja menettelyihin ulkomailla asumista, opiskelua ja työskentelyä varten.' },
-      el: { title: 'ΤΕΧΝΙΚΗ ΥΠΟΣΤΗΡΙΞΗ ΓΙΑ ΜΕΤΑΝΑΣΤΕΣ', description: 'Τεχνική υποστήριξη για μετανάστες: καθοδήγηση για έγγραφα, επίσημες μεταφράσεις, έντυπα και διαδικασίες για να ζήσετε, να σπουδάσετε και να εργαστείτε στο εξωτερικό.' }
+      es: { title: 'SERVICIOS PARA MIGRANTES', description: 'Apoyo técnico para migrantes: orientación sobre documentos, traducciones de documentos oficiales y cumplimentación de formularios, así como apoyo técnico para recibir ayudas del gobierno de Brasil.' },
+      pt: { title: 'SERVIÇOS PARA MIGRANTES', description: 'Apoio técnico para migrantes: orientação sobre documentos, traduções juramentadas e preenchimento de formulários e apoio técnico para receber auxílios do governo do Brasil' },
     }
   },
   {
@@ -436,6 +455,7 @@ export const SERVICES: Service[] = [
     icon: Plane,
     image: 'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&q=80&w=800',
     externalPlatformLink: TRAVEL_PLATFORM_URL,
+    slides: TRAVEL_GALLERY_IMAGES,
     translations: {
       en: { title: 'TRAVEL', description: 'Domestic and international flights worldwide. Explore the world with comfort and safety.' },
       es: { title: 'VIAJES', description: 'Vuelos nacionales e internacionales en todo el mundo. Explore el mundo con comodidad y seguridad.' },
@@ -514,12 +534,7 @@ export const SERVICES: Service[] = [
     icon: Ship,
     image: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=800',
     externalPlatformLink: CRUISE_OFFERS_URL,
-    slides: [
-      'https://images.unsplash.com/photo-1568045374121-f59eb61c7c8d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1500021804447-2ca2eaaaabeb?auto=format&fit=crop&q=80&w=1200'
-    ],
+    slides: CRUISE_GALLERY_IMAGES,
     translations: {
       en: { title: 'CRUISES', description: 'Luxury cruises with a variety of activities for families to explore beautiful destinations (Partner: Qualitours).' },
       es: { title: 'CRUCEROS', description: 'Cruceros de lujo con una variedad de actividades para familias para explorar destinos hermosos (Socio: Qualitours).' },

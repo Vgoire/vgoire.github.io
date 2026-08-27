@@ -27,6 +27,7 @@ import {
   YOTUBE_URL_TRIPS
 } from './constants';
 import VideoModal from './videoModal';
+import ImageCarousel from './imageCarousel';
 
 // --- Components ---
 
@@ -136,6 +137,9 @@ const ServiceCard = ({ service, lang, onClick }: { service: Service, lang: Langu
   const content = service.translations[lang];
   const isEnlarged = service.id === 'google_rates' || service.id === 'vgoire_videos';
 
+  // Serviço sem tradução para o idioma atual não é exibido.
+  if (!content) return null;
+
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -193,6 +197,9 @@ const ServiceDetail = ({ service, lang, onBack, onLangChange }: { service: Servi
 
   const whatsappUrl = WHATSAPP_BASE_URL;
 
+  // Serviço sem tradução para o idioma atual não é exibido.
+  if (!content) return null;
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -240,19 +247,9 @@ const ServiceDetail = ({ service, lang, onBack, onLangChange }: { service: Servi
           <div className="mb-10">
             <h3 className="text-vgoire-gold font-bold uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
               <Globe className="w-4 h-4" />
-              Gallery
+              {t.gallery}
             </h3>
-            <div className="grid grid-cols-2 gap-4">
-              {service.slides.map((slide, idx) => (
-                <motion.div 
-                  key={idx}
-                  whileHover={{ scale: 1.02 }}
-                  className="h-40 rounded-xl overflow-hidden border border-white/10 shadow-lg"
-                >
-                  <img src={slide} alt={`Slide ${idx}`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                </motion.div>
-              ))}
-            </div>
+            <ImageCarousel images={service.slides} alt={content.title} />
           </div>
         )}
 
@@ -435,12 +432,22 @@ export default function App() {
   const t = UI_STRINGS[lang];
   const isRtl = LANGUAGES.find(l => l.code === lang)?.dir === 'rtl';
 
+  // Só entram na tela inicial os serviços traduzidos para o idioma escolhido.
+  const visibleServices = SERVICES.filter(service => service.translations[lang]);
+
+  // Se o idioma for trocado dentro de uma janela que não tem tradução nesse
+  // idioma (ou se um link ?service= apontar para ela), volta para a lista.
+  const selectedIsAvailable = !!selectedService && !!selectedService.translations[lang];
+  useEffect(() => {
+    if (selectedService && !selectedIsAvailable) setSelectedService(null);
+  }, [selectedService, selectedIsAvailable]);
+
   return (
     <div className="min-h-screen bg-vgoire-blue selection:bg-vgoire-gold selection:text-vgoire-blue" dir={isRtl ? 'rtl' : 'ltr'}>
       <AnimatePresence mode="wait">
         {showSplash ? (
           <SplashScreen key="splash" onComplete={() => setShowSplash(false)} lang={lang} />
-        ) : selectedService ? (
+        ) : selectedService && selectedIsAvailable ? (
           <ServiceDetail 
             key="detail"
             service={selectedService} 
@@ -507,7 +514,7 @@ export default function App() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                {SERVICES.map((service) => (
+                {visibleServices.map((service) => (
                   <ServiceCard 
                     key={service.id} 
                     service={service} 
