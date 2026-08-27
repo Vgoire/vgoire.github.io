@@ -28,7 +28,7 @@ export const YOTUBE_URL_TRIPS = "https://www.youtube.com/watch?v=Ls-elZIb0f8";
 // OFERTAS DE CRUZEIROS DO MÊS
 // Linktree para atualizar todo mês lá
 // ---------------------------------------------------------------------------
-export const CRUISE_OFFERS_URL = "https://linktr.ee/erickweil";
+export const CRUISE_OFFERS_URL = "https://linktr.ee/communicationvgl";
 
 // ---------------------------------------------------------------------------
 // GALERIA DE IMAGENS DA TELA DE VIAGENS
